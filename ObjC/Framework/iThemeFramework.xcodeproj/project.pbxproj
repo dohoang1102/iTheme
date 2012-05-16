@@ -1,0 +1,322 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		67D6EF1B1555D0A700B6E30E /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6EF191555D0A700B6E30E /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6EF1C1555D0A700B6E30E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6EF1A1555D0A700B6E30E /* Constants.m */; };
+		67E2A5351542CC93009CBB8C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67E2A5331542CC93009CBB8C /* InfoPlist.strings */; };
+		67E2A54A1542CDE8009CBB8C /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2A5441542CDE8009CBB8C /* Theme.m */; };
+		67E2A54B1542CDE8009CBB8C /* ThemeFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2A5461542CDE8009CBB8C /* ThemeFramework.m */; };
+		67E2A54E1542CE42009CBB8C /* Theme.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E2A5431542CDE8009CBB8C /* Theme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67E2A54F1542CE42009CBB8C /* ThemeFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E2A5451542CDE8009CBB8C /* ThemeFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67E2A5501542CE42009CBB8C /* ThemeFrameworkDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E2A5471542CDE8009CBB8C /* ThemeFrameworkDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		67D6EF191555D0A700B6E30E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		67D6EF1A1555D0A700B6E30E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		67E2A52B1542CC93009CBB8C /* iThemeFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iThemeFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67E2A52E1542CC93009CBB8C /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		67E2A5321542CC93009CBB8C /* iThemeFramework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iThemeFramework-Info.plist"; sourceTree = "<group>"; };
+		67E2A5341542CC93009CBB8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		67E2A5361542CC93009CBB8C /* iThemeFramework-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iThemeFramework-Prefix.pch"; sourceTree = "<group>"; };
+		67E2A5431542CDE8009CBB8C /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
+		67E2A5441542CDE8009CBB8C /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
+		67E2A5451542CDE8009CBB8C /* ThemeFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeFramework.h; sourceTree = "<group>"; };
+		67E2A5461542CDE8009CBB8C /* ThemeFramework.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeFramework.m; sourceTree = "<group>"; };
+		67E2A5471542CDE8009CBB8C /* ThemeFrameworkDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeFrameworkDelegate.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		67E2A5281542CC93009CBB8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		67E2A5201542CC92009CBB8C = {
+			isa = PBXGroup;
+			children = (
+				67E2A5301542CC93009CBB8C /* iThemeFramework */,
+				67E2A52D1542CC93009CBB8C /* Frameworks */,
+				67E2A52C1542CC93009CBB8C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		67E2A52C1542CC93009CBB8C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67E2A52B1542CC93009CBB8C /* iThemeFramework.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		67E2A52D1542CC93009CBB8C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67E2A52E1542CC93009CBB8C /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		67E2A5301542CC93009CBB8C /* iThemeFramework */ = {
+			isa = PBXGroup;
+			children = (
+				67E2A5401542CDE8009CBB8C /* Source */,
+				67E2A5311542CC93009CBB8C /* Supporting Files */,
+			);
+			path = iThemeFramework;
+			sourceTree = "<group>";
+		};
+		67E2A5311542CC93009CBB8C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				67E2A5321542CC93009CBB8C /* iThemeFramework-Info.plist */,
+				67E2A5331542CC93009CBB8C /* InfoPlist.strings */,
+				67E2A5361542CC93009CBB8C /* iThemeFramework-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		67E2A5401542CDE8009CBB8C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				67E2A5431542CDE8009CBB8C /* Theme.h */,
+				67E2A5441542CDE8009CBB8C /* Theme.m */,
+				67E2A5451542CDE8009CBB8C /* ThemeFramework.h */,
+				67E2A5461542CDE8009CBB8C /* ThemeFramework.m */,
+				67E2A5471542CDE8009CBB8C /* ThemeFrameworkDelegate.h */,
+				67D6EF191555D0A700B6E30E /* Constants.h */,
+				67D6EF1A1555D0A700B6E30E /* Constants.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		67E2A54D1542CE36009CBB8C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67D6EF1B1555D0A700B6E30E /* Constants.h in Headers */,
+				67E2A54E1542CE42009CBB8C /* Theme.h in Headers */,
+				67E2A54F1542CE42009CBB8C /* ThemeFramework.h in Headers */,
+				67E2A5501542CE42009CBB8C /* ThemeFrameworkDelegate.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		67E2A52A1542CC93009CBB8C /* iThemeFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67E2A5391542CC93009CBB8C /* Build configuration list for PBXNativeTarget "iThemeFramework" */;
+			buildPhases = (
+				67E2A54D1542CE36009CBB8C /* Headers */,
+				67E2A5271542CC93009CBB8C /* Sources */,
+				67E2A5281542CC93009CBB8C /* Frameworks */,
+				67E2A5291542CC93009CBB8C /* Resources */,
+				67E2A53F1542CDA5009CBB8C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iThemeFramework;
+			productName = iThemeFramework;
+			productReference = 67E2A52B1542CC93009CBB8C /* iThemeFramework.framework */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		67E2A5221542CC92009CBB8C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "QuantumLogic LTD";
+			};
+			buildConfigurationList = 67E2A5251542CC92009CBB8C /* Build configuration list for PBXProject "iThemeFramework" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 67E2A5201542CC92009CBB8C;
+			productRefGroup = 67E2A52C1542CC93009CBB8C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				67E2A52A1542CC93009CBB8C /* iThemeFramework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		67E2A5291542CC93009CBB8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67E2A5351542CC93009CBB8C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		67E2A53F1542CDA5009CBB8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Sets the target folders and the final framework product.\nFMK_NAME=iThemeFramework\nFMK_VERSION=A\n\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\n#INSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\nINSTALL_DIR=${SYMROOT}/Products/${FMK_NAME}.framework\necho HELLO\necho $INSTALL_DIR\necho $FMK_NAME\necho ${SYMROOT}\n#xcodebuild\n\n# Working dir will be deleted after the framework creation.\nWRK_DIR=${SYMROOT}\nDEVICE_DIR=${WRK_DIR}/Debug-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Debug-iphonesimulator/${FMK_NAME}.framework\necho BRUV\necho $DEVICE_DIR\n\n# Building both architectures.\n# There is a problem here with inifite recursion that will crash your mac.\n# You need to just build device+simulator one after the other for best usage.\n###xcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos\n###xcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator\n\n\n\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n\n# Creates and renews the final product folder.\nmkdir -p \"${INSTALL_DIR}\"\nmkdir -p \"${INSTALL_DIR}/Versions\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers\"\n\n# Creates the internal links.\n# It MUST uses relative path, otherwise will not work when the folder is copied/moved.\nln -s \"${FMK_VERSION}\" \"${INSTALL_DIR}/Versions/Current\"\nln -s \"Versions/Current/Headers\" \"${INSTALL_DIR}/Headers\"\nln -s \"Versions/Current/Resources\" \"${INSTALL_DIR}/Resources\"\nln -s \"Versions/Current/${FMK_NAME}\" \"${INSTALL_DIR}/${FMK_NAME}\"\n\n# Copies the headers and resources files to the final product folder.\ncp -R \"${DEVICE_DIR}/Headers/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers/\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/\"\n\n# Removes the binary and header from the resources folder.\nrm -r \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/Headers\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/${FMK_NAME}\"\n\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/Versions/${FMK_VERSION}/${FMK_NAME}\"\n\n#rm -r \"${WRK_DIR}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		67E2A5271542CC93009CBB8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67E2A54A1542CDE8009CBB8C /* Theme.m in Sources */,
+				67E2A54B1542CDE8009CBB8C /* ThemeFramework.m in Sources */,
+				67D6EF1C1555D0A700B6E30E /* Constants.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		67E2A5331542CC93009CBB8C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67E2A5341542CC93009CBB8C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		67E2A5371542CC93009CBB8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = mh_object;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		67E2A5381542CC93009CBB8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = mh_object;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
+		67E2A53A1542CC93009CBB8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iThemeFramework/iThemeFramework-Prefix.pch";
+				INFOPLIST_FILE = "iThemeFramework/iThemeFramework-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		67E2A53B1542CC93009CBB8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iThemeFramework/iThemeFramework-Prefix.pch";
+				INFOPLIST_FILE = "iThemeFramework/iThemeFramework-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		67E2A5251542CC92009CBB8C /* Build configuration list for PBXProject "iThemeFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67E2A5371542CC93009CBB8C /* Debug */,
+				67E2A5381542CC93009CBB8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67E2A5391542CC93009CBB8C /* Build configuration list for PBXNativeTarget "iThemeFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67E2A53A1542CC93009CBB8C /* Debug */,
+				67E2A53B1542CC93009CBB8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 67E2A5221542CC92009CBB8C /* Project object */;
+}

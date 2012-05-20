@@ -107,7 +107,7 @@ static ThemeFramework* _sharedMySingleton = nil;
     return [fileManager createFileAtPath:filePath contents:data attributes:nil];
 }
 
-- (BOOL)saveRequiresImmediateDownloadFiles:(NSString *)themeId themeDictionary:(NSDictionary *)themeDictionary
+- (BOOL)downloadFilesForTheme:(NSString *)themeId themeDictionary:(NSDictionary *)themeDictionary immediatesOnly:(BOOL)immediatesOnly;
 {
 	if (themeDictionary == nil)
 		return FALSE;
@@ -125,7 +125,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 		if (requiresImmediateDownload != nil)
 		{
 			BOOL rid = [requiresImmediateDownload boolValue];
-			if (rid)
+			if (rid || immediatesOnly==FALSE)
 			{
                 NSString *assetUrl = [control objectForKey:kKEY_ASSETURL];
                 NSString *keyName = [control objectForKey:kKEY_KEYNAME];
@@ -149,13 +149,13 @@ static ThemeFramework* _sharedMySingleton = nil;
     return allOK;
 }
 
-- (BOOL)addTheme:(NSData *)jsonData themeDictionary:(NSDictionary *)themeDictionary
+- (BOOL)addTheme:(NSData *)jsonData themeDictionary:(NSDictionary *)themeDictionary immediatesOnly:(BOOL)immediatesOnly
 {
     NSString *themeId = [themeDictionary objectForKey:kKEY_THEMEID];
     NSString *shortCode = [themeDictionary objectForKey:kKEY_SHORTCODE];
     
     [self saveFile:jsonData folder:themeId filename:kTHEMENAME];
-	[self saveRequiresImmediateDownloadFiles:themeId themeDictionary:themeDictionary];
+	[self downloadFilesForTheme:themeId themeDictionary:themeDictionary immediatesOnly:immediatesOnly];
     [self addThemeEntryToManifest:themeId shortCode:shortCode];
     return TRUE;
 }
@@ -330,7 +330,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 		NSString *json = [self.Delegate performSelector:self.DictionaryToJSON withObject:themeDictionary];
 		NSData* themeData=[json dataUsingEncoding:NSUTF8StringEncoding];
 		
-        [self addTheme:themeData themeDictionary:themeDictionary];
+        [self addTheme:themeData themeDictionary:themeDictionary immediatesOnly:TRUE];
         
         [themes addObject:[[Theme alloc] initFromDictionary:themeDictionary]];
         
@@ -419,7 +419,7 @@ static ThemeFramework* _sharedMySingleton = nil;
     NSString *themeJson = [self.Delegate performSelector:self.DictionaryToJSON withObject:themeDictionary];
     NSData* themeData=[themeJson dataUsingEncoding:NSUTF8StringEncoding];
     
-    [self addTheme:themeData themeDictionary:themeDictionary];
+    [self addTheme:themeData themeDictionary:themeDictionary immediatesOnly:FALSE];
 
     if ([m_target respondsToSelector:m_themeDownloadSuccess])
     {

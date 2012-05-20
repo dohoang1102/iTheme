@@ -65,9 +65,9 @@
 // Private: Saves a file to a particular file within the root folder
 - (BOOL)saveFile:(NSData *)data folder:(NSString *)folder filename:(NSString *)filename;
 // Private: Any files that require immediate download, like promotional items are saved by this method
-- (BOOL)saveRequiresImmediateDownloadFiles:(NSString *)themeId themeDictionary:(NSDictionary *)themeDictionary;
+- (BOOL)downloadFilesForTheme:(NSString *)themeId themeDictionary:(NSDictionary *)themeDictionary immediatesOnly:(BOOL)immediatesOnly;
 // Private: save the theme and log it to the manifest
-- (BOOL)addTheme:(NSData *)jsonData themeDictionary:(NSDictionary *)themeDictionary;
+- (BOOL)addTheme:(NSData *)jsonData themeDictionary:(NSDictionary *)themeDictionary immediatesOnly:(BOOL)immediatesOnly;
 // Private: add a theme to the manifest, store a reference to the themeId and
 // the shortcode so that we can do quicker lookups
 - (BOOL)addThemeEntryToManifest:(NSString *)themeId shortCode:(NSString *)shortCode;

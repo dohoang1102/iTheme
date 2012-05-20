@@ -266,7 +266,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 - (void)browseReceived:(NSString *)theUrl
 {
     NSURL *url = [NSURL URLWithString:theUrl];
-    NSURLRequest *theRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:TIMEOUT];
+    NSURLRequest *theRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:TIMEOUT];
     NSError *jsonUrlError = nil;
     NSData *data = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:nil error:&jsonUrlError];
     
@@ -375,7 +375,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 - (void)themeDownload:(NSString *)theUrl
 {
     NSURL *url = [NSURL URLWithString:theUrl];
-    NSURLRequest *theRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:TIMEOUT];
+    NSURLRequest *theRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:TIMEOUT];
     NSError *jsonUrlError = nil;
     NSData *data = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:nil error:&jsonUrlError]; 
     
@@ -438,7 +438,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 - (BOOL)downloadResource:(NSString *)theURL folder:(NSString *)folder savefilename:(NSString *)savefilename
 {
 	NSURL *url = [NSURL URLWithString:theURL];
-	NSURLRequest *theRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:TIMEOUT];
+	NSURLRequest *theRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:TIMEOUT];
 	NSData *theData = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:nil error:nil];
 	
 	if (theData == nil)

@@ -47,6 +47,7 @@ extern NSString * const kKEY_HEADER_MESSAGE;
 extern NSString * const kKEY_HEADER_PROPOSAL;
 extern NSString * const kKEY_MANIFEST_NOT_FOUND;
 extern NSString * const kKEY_THEME_BY_SHORTCODE_NOT_FOUND;
+extern NSString * const kKEY_FILENAME;
 
 #define TIMEOUT 30
 #define kAPI_THEME_URL(__themeId__) [NSString stringWithFormat:@"http://api.itheme.com/v1/themes/%@", __themeId__];

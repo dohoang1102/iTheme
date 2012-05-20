@@ -47,3 +47,4 @@ NSString * const kKEY_HEADER_MESSAGE = @"message";
 NSString * const kKEY_HEADER_PROPOSAL = @"proposal";
 NSString * const kKEY_MANIFEST_NOT_FOUND = @"Manifest file not found";
 NSString * const kKEY_THEME_BY_SHORTCODE_NOT_FOUND = @"Theme could not be found by shortcode";
+NSString * const kKEY_FILENAME = @"fileName";

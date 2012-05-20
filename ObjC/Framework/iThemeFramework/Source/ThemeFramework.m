@@ -129,11 +129,19 @@ static ThemeFramework* _sharedMySingleton = nil;
 			{
                 NSString *assetUrl = [control objectForKey:kKEY_ASSETURL];
                 NSString *keyName = [control objectForKey:kKEY_KEYNAME];
-                if (assetUrl!= nil)
+                NSString *fileName = [control objectForKey:kKEY_FILENAME];
+                
+                //If there is no specified filename, save as the key name.
+                if (fileName == nil || [fileName isEqualToString:@""])
+                {
+                    fileName = keyName;
+                }
+                
+                if (assetUrl != nil)
                 {
                     allOK = allOK & [self downloadResource:assetUrl 
                                                     folder:themeId
-                                              savefilename:keyName];
+                                              savefilename:fileName];
                 }
 			}
 		}

@@ -263,6 +263,17 @@ static ThemeFramework* _sharedMySingleton = nil;
     [self performSelectorInBackground:@selector(browseReceived:) withObject:url];
 }
 
+- (void)browseThemes:(id)target limit:(int)limit cursor:(NSString *)cursor userId:(NSString *)userId
+{
+    m_limit = limit;
+    m_cursor = cursor;
+    m_target = target;
+    
+    NSString *url = kAPI_USER_THEMES_FOR_APP_PAGED_URL(userId, self.AppKey, limit, cursor);
+    
+    [self performSelectorInBackground:@selector(browseReceived:) withObject:url];
+}
+
 - (void)browseReceived:(NSString *)theUrl
 {
     NSURL *url = [NSURL URLWithString:theUrl];

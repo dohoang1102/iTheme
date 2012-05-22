@@ -86,6 +86,8 @@
 // Public: Browse themes for appId, limit the results and provide a cursor,
 // the cursor is a value to get the next x records from the database
 - (void)browseThemes:(id)target limit:(int)limit cursor:(NSString *)cursor;
+// Public, Browse themes for a specific user
+- (void)browseThemes:(id)target limit:(int)limit cursor:(NSString *)cursor userId:(NSString *)userId;
 // Private: Download list of themes.
 - (void)browseReceived:(NSString *)theUrl;
 // Private: an error occured when getting the themes

@@ -52,6 +52,7 @@ extern NSString * const kKEY_FILENAME;
 #define TIMEOUT 30
 #define kAPI_THEME_URL(__themeId__) [NSString stringWithFormat:@"http://api.itheme.com/v1/themes/%@", __themeId__];
 #define kAPI_THEMES_PAGED_URL(__appId__,__limit__,__cursor__) [NSString stringWithFormat:@"http://api.itheme.com/v1/apps/%@/themes?limit=%d&cursor=%@", __appId__,__limit__,__cursor__];
+#define kAPI_USER_THEMES_FOR_APP_PAGED_URL(__userId__,__appId__,__limit__,__cursor__) [NSString stringWithFormat:@"http://api.itheme.com/v1/users/%@/apps/%@/themes?limit=%d&cursor=%@", __userId__,__appId__,__limit__,__cursor__];
 #define kSHORTCODE_URL(__shortCode__) [NSString stringWithFormat:@"http://api.itheme.com/v1/themes?s=%@", __shortCode__];
 
 // Response codes for different requests

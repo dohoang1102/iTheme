@@ -22,9 +22,9 @@
 
 @interface Theme : NSObject
 {
-    @private
-    NSString *m_themeId;
-    NSDictionary *m_contents;
+	@private
+	NSString *m_themeId;
+	NSDictionary *m_contents;
 	NSMutableDictionary *m_controls;
 }
 

@@ -27,13 +27,13 @@
 
 - (Theme *)initFromDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
-    if(self) {
-        m_contents = dictionary;
-        m_themeId = [dictionary objectForKey:kKEY_THEMEID];
+	self = [super init];
+	if(self) {
+		m_contents = dictionary;
+		m_themeId = [dictionary objectForKey:kKEY_THEMEID];
 		[self setupControls];
-    }
-    return self;
+	}
+	return self;
 }
 
 - (void)setupControls
@@ -56,25 +56,25 @@
 //If so, use this, otherwise use the keyname.
 - (id)pathToDataFileForKey:(NSString *)keyName
 {
-    NSDictionary *keyDict = [m_controls objectForKey:keyName];
-    if (keyDict != nil)
+	NSDictionary *keyDict = [m_controls objectForKey:keyName];
+	if (keyDict != nil)
 	{
-        NSString *fileName = [keyDict objectForKey:kKEY_FILENAME];
-        if (fileName != nil && [fileName isEqualToString:@""] == FALSE)
-        {
-            return [[ThemeFramework instance] getThemeFilePath:m_themeId fileName:fileName];
-        }
-        return [[ThemeFramework instance] getThemeFilePath:m_themeId fileName:keyName];
-    }
-    return nil;
+		NSString *fileName = [keyDict objectForKey:kKEY_FILENAME];
+		if (fileName != nil && [fileName isEqualToString:@""] == FALSE)
+		{
+			return [[ThemeFramework instance] getThemeFilePath:m_themeId fileName:fileName];
+		}
+		return [[ThemeFramework instance] getThemeFilePath:m_themeId fileName:keyName];
+	}
+	return nil;
 }
 
 - (NSString *)returnText:(NSString*)keyName
 {
-    NSDictionary *keyDict = [m_controls objectForKey:keyName];
+	NSDictionary *keyDict = [m_controls objectForKey:keyName];
 	if (keyDict != nil)
 	{
-        NSString *text = [keyDict objectForKey:kKEY_TEXT];
+		NSString *text = [keyDict objectForKey:kKEY_TEXT];
 		if (text != nil)
 		{
 			return text;

@@ -24,20 +24,20 @@
 
 @interface ThemeFramework : NSObject
 {
-    NSString *m_appKey;
-    NSString *m_rootFolder;
-    id<ThemeFrameworkDelegate> m_delegate;
-    SEL m_jsonToDictionary; // - (NSDictionary *)convertJSONToDictionary:(NSString *)json
+	NSString *m_appKey;
+	NSString *m_rootFolder;
+	id<ThemeFrameworkDelegate> m_delegate;
+	SEL m_jsonToDictionary; // - (NSDictionary *)convertJSONToDictionary:(NSString *)json
 	SEL m_dictionaryToJSON; // - (NSString *)convertDictionaryToJSON:(NSDictionary *)dictionary
     
-    SEL m_themeDownloadSuccess;
-    SEL m_themeDownloadFailure;
+	SEL m_themeDownloadSuccess;
+	SEL m_themeDownloadFailure;
     
-    id m_target;
-    int m_limit;
-    NSString *m_cursor;
+	id m_target;
+	int m_limit;
+	NSString *m_cursor;
     
-    Theme* m_currentTheme;
+	Theme* m_currentTheme;
 }
 @property (nonatomic, retain) NSString *AppKey;
 @property (nonatomic, retain) NSString *Folder;

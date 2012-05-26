@@ -26,14 +26,16 @@
 	NSString *m_themeId;
 	NSDictionary *m_contents;
 	NSMutableDictionary *m_controls;
+	NSString *m_rootFolder;
 }
 
 @property (nonatomic, retain) NSString *m_themeId;
 @property (nonatomic, retain) NSDictionary *Contents;
 @property (nonatomic, retain) NSMutableDictionary *Controls;
+@property (nonatomic, retain) NSString *Folder;
 
-// Public Initalize a theme from a dictionary,
-- (Theme *)initFromDictionary:(NSDictionary *)dictionary;
+// Public Initalize a theme from a dictionary, including the resource root
+- (Theme *)initFromDictionary:(NSDictionary *)dictionary folder:(NSString *)folder;
 // Private
 - (void)setupControls;
 // Public Returns the full path to a file on disk
@@ -42,5 +44,7 @@
 // Public Helper, returns the 'text' dictionary value
 // for a named key.
 - (NSString *)returnText:(NSString *)keyName;
+// Public Returns a path to an asset for the theme
+- (NSString *)getPathToThemeAsset:(NSString *)fileName;
 
 @end

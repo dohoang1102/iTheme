@@ -112,8 +112,6 @@
 
 // Public: Get a theme by themeId
 - (Theme *)getTheme:(NSString *)themeId error:(NSError **)error;
-// Public: Get the path to a file for a key name
-- (NSString *)getThemeFilePath:(NSString *)themeId fileName:(NSString *)fileName;
 
 // Private: Returns an error object.
 - (NSError *)provideError:(NSString *)message errorcode:(int)errorcode;

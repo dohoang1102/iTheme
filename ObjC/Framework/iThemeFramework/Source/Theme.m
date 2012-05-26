@@ -24,13 +24,15 @@
 @synthesize m_themeId;
 @synthesize Contents = m_contents;
 @synthesize Controls = m_controls;
+@synthesize Folder = m_rootFolder;
 
-- (Theme *)initFromDictionary:(NSDictionary *)dictionary
+- (Theme *)initFromDictionary:(NSDictionary *)dictionary folder:(NSString *)folder
 {
 	self = [super init];
 	if(self) {
 		m_contents = dictionary;
 		m_themeId = [dictionary objectForKey:kKEY_THEMEID];
+		m_rootFolder = folder;
 		[self setupControls];
 	}
 	return self;
@@ -62,9 +64,9 @@
 		NSString *fileName = [keyDict objectForKey:kKEY_FILENAME];
 		if (fileName != nil && [fileName isEqualToString:@""] == FALSE)
 		{
-			return [[ThemeFramework instance] getThemeFilePath:m_themeId fileName:fileName];
+			return [self getPathToThemeAsset:fileName];
 		}
-		return [[ThemeFramework instance] getThemeFilePath:m_themeId fileName:keyName];
+		return [self getPathToThemeAsset:keyName];
 	}
 	return nil;
 }
@@ -81,6 +83,13 @@
 		}
 	}
 	return nil;
+}
+
+- (NSString *)getPathToThemeAsset:(NSString *)fileName
+{
+	NSString *filePath = self.Folder;
+	filePath = [filePath stringByAppendingPathComponent:m_themeId];
+	return [filePath stringByAppendingPathComponent:fileName];
 }
 
 @end

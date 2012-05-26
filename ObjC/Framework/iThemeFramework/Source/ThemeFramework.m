@@ -342,7 +342,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 		
 		[self addTheme:themeData themeDictionary:themeDictionary immediatesOnly:TRUE];
         
-		[themes addObject:[[Theme alloc] initFromDictionary:themeDictionary]];
+		[themes addObject:[[Theme alloc] initFromDictionary:themeDictionary folder:m_rootFolder]];
 	}
 
 	if ([m_target respondsToSelector:@selector(browseCallback:cursor:)])
@@ -432,7 +432,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 	
 	if ([m_target respondsToSelector:m_themeDownloadSuccess])
 	{
-		[m_target performSelector:m_themeDownloadSuccess withObject:[[Theme alloc] initFromDictionary:themeDictionary]];
+		[m_target performSelector:m_themeDownloadSuccess withObject:[[Theme alloc] initFromDictionary:themeDictionary folder:m_rootFolder]];
 	}
 }
 
@@ -481,17 +481,10 @@ static ThemeFramework* _sharedMySingleton = nil;
 		*error = [NSError errorWithDomain:kKEY_ERROR_DOMAIN code:JSONToDictMethodMissing userInfo:errorDetail];
 	} else {
 		dic = [self.Delegate performSelector:self.JSONToDictionary withObject:json];
-		theme = [[Theme alloc] initFromDictionary:dic];
+		theme = [[Theme alloc] initFromDictionary:dic folder:m_rootFolder];
 	}
 
 	return theme;
-}
-
-- (NSString *)getThemeFilePath:(NSString *)themeId fileName:(NSString *)fileName
-{
-	NSString *filePath = [self fullBasePath];
-	filePath = [filePath stringByAppendingPathComponent:themeId];
-	return [filePath stringByAppendingPathComponent:fileName];
 }
 
 - (NSError *)provideError:(NSString *)message errorcode:(int)errorcode

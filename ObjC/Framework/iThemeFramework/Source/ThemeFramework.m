@@ -154,7 +154,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 	NSString *themeId = [themeDictionary objectForKey:kKEY_THEMEID];
 	NSString *shortCode = [themeDictionary objectForKey:kKEY_SHORTCODE];
     
-    [self saveFile:jsonData folder:themeId filename:kTHEMENAME];
+	[self saveFile:jsonData folder:themeId filename:kTHEMENAME];
 	[self downloadFilesForTheme:themeId themeDictionary:themeDictionary immediatesOnly:immediatesOnly];
 	[self addThemeEntryToManifest:themeId shortCode:shortCode];
 	return TRUE;

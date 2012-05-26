@@ -52,18 +52,32 @@
 	}
 }
 
+//Does the theme have a filename for this key?
+//If so, use this, otherwise use the keyname.
 - (id)pathToDataFileForKey:(NSString *)keyName
 {
-    return [[ThemeFramework instance] getThemeFilePath:m_themeId keyName:keyName];
+    NSDictionary *keyDict = [m_controls objectForKey:keyName];
+    if (keyDict != nil)
+	{
+        NSString *fileName = [keyDict objectForKey:kKEY_FILENAME];
+        if (fileName != nil && [fileName isEqualToString:@""] == FALSE)
+        {
+            return [[ThemeFramework instance] getThemeFilePath:m_themeId fileName:fileName];
+        }
+        return [[ThemeFramework instance] getThemeFilePath:m_themeId fileName:keyName];
+    }
+    return nil;
 }
 
 - (NSString *)returnText:(NSString*)keyName
 {
-	if ([m_controls objectForKey:keyName] != nil)
+    NSDictionary *keyDict = [m_controls objectForKey:keyName];
+	if (keyDict != nil)
 	{
-		if ([[m_controls objectForKey:keyName] objectForKey:@"text"] != nil)
+        NSString *text = [keyDict objectForKey:kKEY_TEXT];
+		if (text != nil)
 		{
-			return [[m_controls objectForKey:keyName] objectForKey:@"text"];
+			return text;
 		}
 	}
 	return nil;

@@ -489,11 +489,11 @@ static ThemeFramework* _sharedMySingleton = nil;
     return theme;
 }
 
-- (NSString *)getThemeFilePath:(NSString *)themeId keyName:(NSString *)keyName
+- (NSString *)getThemeFilePath:(NSString *)themeId fileName:(NSString *)fileName
 {
     NSString *filePath = [self fullBasePath];
     filePath = [filePath stringByAppendingPathComponent:themeId];
-    return  [filePath stringByAppendingPathComponent:keyName];
+    return [filePath stringByAppendingPathComponent:fileName];
 }
 
 - (NSError *)provideError:(NSString *)message errorcode:(int)errorcode

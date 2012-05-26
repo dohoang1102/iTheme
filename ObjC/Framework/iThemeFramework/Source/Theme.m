@@ -32,7 +32,7 @@
 	if(self) {
 		m_contents = dictionary;
 		m_themeId = [dictionary objectForKey:kKEY_THEMEID];
-		m_rootFolder = folder;
+		m_rootFolder = [folder retain];
 		[self setupControls];
 	}
 	return self;
@@ -87,7 +87,7 @@
 
 - (NSString *)getPathToThemeAsset:(NSString *)fileName
 {
-	NSString *filePath = self.Folder;
+	NSString *filePath = m_rootFolder;
 	filePath = [filePath stringByAppendingPathComponent:m_themeId];
 	return [filePath stringByAppendingPathComponent:fileName];
 }

@@ -37,20 +37,8 @@ static ThemeFramework* _sharedMySingleton = nil;
 	{
 		if (!_sharedMySingleton)
 		{
-			[[self alloc] init];
+			_sharedMySingleton = [[super alloc] init];
 		}
-		return _sharedMySingleton;
-	}
-    
-	return nil;
-}
-
-+ (id)alloc
-{
-	@synchronized([ThemeFramework class])
-	{
-		NSAssert(_sharedMySingleton == nil, @"Attempted to allocate a second instance of ThemeFramework singleton.");
-		_sharedMySingleton = [super alloc];
 		return _sharedMySingleton;
 	}
     
@@ -342,7 +330,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 		
 		[self addTheme:themeData themeDictionary:themeDictionary immediatesOnly:TRUE];
         
-		[themes addObject:[[Theme alloc] initFromDictionary:themeDictionary folder:m_rootFolder]];
+		[themes addObject:[[Theme alloc] initFromDictionary:themeDictionary folder:[self fullBasePath]]];
 	}
 
 	if ([m_target respondsToSelector:@selector(browseCallback:cursor:)])
@@ -432,7 +420,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 	
 	if ([m_target respondsToSelector:m_themeDownloadSuccess])
 	{
-		[m_target performSelector:m_themeDownloadSuccess withObject:[[Theme alloc] initFromDictionary:themeDictionary folder:m_rootFolder]];
+		[m_target performSelector:m_themeDownloadSuccess withObject:[[Theme alloc] initFromDictionary:themeDictionary folder:[self fullBasePath]]];
 	}
 }
 
@@ -481,7 +469,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 		*error = [NSError errorWithDomain:kKEY_ERROR_DOMAIN code:JSONToDictMethodMissing userInfo:errorDetail];
 	} else {
 		dic = [self.Delegate performSelector:self.JSONToDictionary withObject:json];
-		theme = [[Theme alloc] initFromDictionary:dic folder:m_rootFolder];
+		theme = [[Theme alloc] initFromDictionary:dic folder:[self fullBasePath]];
 	}
 
 	return theme;

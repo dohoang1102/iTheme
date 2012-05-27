@@ -21,7 +21,7 @@
 #import "ThemeFramework.h"
 
 @implementation Theme
-@synthesize m_themeId;
+@synthesize ThemeId = m_themeId;
 @synthesize Contents = m_contents;
 @synthesize Controls = m_controls;
 @synthesize Folder = m_rootFolder;
@@ -90,6 +90,11 @@
 	NSString *filePath = m_rootFolder;
 	filePath = [filePath stringByAppendingPathComponent:m_themeId];
 	return [filePath stringByAppendingPathComponent:fileName];
+}
+
+- (NSDictionary *)getKeyInfo:(NSString *)keyName
+{
+	return [m_controls objectForKey:keyName];
 }
 
 @end

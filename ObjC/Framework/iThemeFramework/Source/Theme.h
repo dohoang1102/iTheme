@@ -29,7 +29,7 @@
 	NSString *m_rootFolder;
 }
 
-@property (nonatomic, retain) NSString *m_themeId;
+@property (nonatomic, retain) NSString *ThemeId;
 @property (nonatomic, retain) NSDictionary *Contents;
 @property (nonatomic, retain) NSMutableDictionary *Controls;
 @property (nonatomic, retain) NSString *Folder;
@@ -46,5 +46,7 @@
 - (NSString *)returnText:(NSString *)keyName;
 // Public Returns a path to an asset for the theme
 - (NSString *)getPathToThemeAsset:(NSString *)fileName;
+// Public get a theme key data as a dictionary;
+- (NSDictionary *)getKeyInfo:(NSString *)keyName;
 
 @end

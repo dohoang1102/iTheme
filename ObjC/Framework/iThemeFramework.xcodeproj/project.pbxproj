@@ -15,6 +15,8 @@
 		67E2A54E1542CE42009CBB8C /* Theme.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E2A5431542CDE8009CBB8C /* Theme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67E2A54F1542CE42009CBB8C /* ThemeFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E2A5451542CDE8009CBB8C /* ThemeFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67E2A5501542CE42009CBB8C /* ThemeFrameworkDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E2A5471542CDE8009CBB8C /* ThemeFrameworkDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67F2D98415839B800071C237 /* Progress.h in Headers */ = {isa = PBXBuildFile; fileRef = 67F2D98215839B800071C237 /* Progress.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67F2D98515839B800071C237 /* Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D98315839B800071C237 /* Progress.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		67E2A5451542CDE8009CBB8C /* ThemeFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeFramework.h; sourceTree = "<group>"; };
 		67E2A5461542CDE8009CBB8C /* ThemeFramework.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeFramework.m; sourceTree = "<group>"; };
 		67E2A5471542CDE8009CBB8C /* ThemeFrameworkDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeFrameworkDelegate.h; sourceTree = "<group>"; };
+		67F2D98215839B800071C237 /* Progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Progress.h; sourceTree = "<group>"; };
+		67F2D98315839B800071C237 /* Progress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Progress.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 				67E2A5471542CDE8009CBB8C /* ThemeFrameworkDelegate.h */,
 				67D6EF191555D0A700B6E30E /* Constants.h */,
 				67D6EF1A1555D0A700B6E30E /* Constants.m */,
+				67F2D98215839B800071C237 /* Progress.h */,
+				67F2D98315839B800071C237 /* Progress.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -109,6 +115,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67D6EF1B1555D0A700B6E30E /* Constants.h in Headers */,
+				67F2D98415839B800071C237 /* Progress.h in Headers */,
 				67E2A54E1542CE42009CBB8C /* Theme.h in Headers */,
 				67E2A54F1542CE42009CBB8C /* ThemeFramework.h in Headers */,
 				67E2A5501542CE42009CBB8C /* ThemeFrameworkDelegate.h in Headers */,
@@ -198,6 +205,7 @@
 				67E2A54A1542CDE8009CBB8C /* Theme.m in Sources */,
 				67E2A54B1542CDE8009CBB8C /* ThemeFramework.m in Sources */,
 				67D6EF1C1555D0A700B6E30E /* Constants.m in Sources */,
+				67F2D98515839B800071C237 /* Progress.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

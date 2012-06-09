@@ -21,6 +21,7 @@
 #import "Theme.h"
 #import "ThemeFrameworkDelegate.h"
 #import "Constants.h"
+#import "Progress.h"
 
 @interface ThemeFramework : NSObject
 {
@@ -32,6 +33,7 @@
     
 	SEL m_themeDownloadSuccess;
 	SEL m_themeDownloadFailure;
+	SEL m_themeDownloadProgress; //- (void)update:(Progress *)progress
     
 	id m_target;
 	int m_limit;
@@ -95,10 +97,12 @@
 
 // Public: Download a theme by shortcode
 - (void)downloadThemeByShortCode:(NSString *)shortCode target:(id)target success:(SEL)success failure:(SEL)failure;
+- (void)downloadThemeByShortCode:(NSString *)shortCode target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress;
 // Public: Download a theme by themeId
-- (void)downloadThemeByThemeId:(NSString *)themeId  target:(id)target success:(SEL)success failure:(SEL)failure;
+- (void)downloadThemeByThemeId:(NSString *)themeId target:(id)target success:(SEL)success failure:(SEL)failure;
+- (void)downloadThemeByThemeId:(NSString *)themeId target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress;
 // Private: Calls themeDownload, sets callback methods
-- (void)downloadThemeByUrl:(NSString *)url success:(SEL)success failure:(SEL)failure;
+- (void)downloadThemeByUrl:(NSString *)url success:(SEL)success failure:(SEL)failure progress:(SEL)progress;
 // Private: Downloads a theme
 - (void)themeDownload:(NSString *)theUrl;
 // Private: an error occured when getting the theme

@@ -103,9 +103,13 @@ static ThemeFramework* _sharedMySingleton = nil;
 	NSArray* controls = [themeDictionary objectForKey:kKEY_CONTROLS];
 	if (controls == nil)
 		return FALSE;
-    
+
 	BOOL allOK = TRUE;
 	int controlCount = [controls count];
+	
+	Progress *p = [[Progress alloc] init];
+	p.TotalItemsToDownload = controlCount;
+	
 	for (int i = 0; i < controlCount; i++)
 	{
 		NSDictionary *control = [controls objectAtIndex:i];
@@ -127,6 +131,12 @@ static ThemeFramework* _sharedMySingleton = nil;
                 
 				if (assetUrl != nil)
 				{
+					if ([m_target respondsToSelector:m_themeDownloadProgress])
+					{
+						p.NumberOfItemsDownloaded = i;
+						[m_target performSelectorOnMainThread:m_themeDownloadProgress withObject:p waitUntilDone:YES];
+					}
+					
 					allOK = allOK & [self downloadResource:assetUrl 
                                                     folder:themeId
                                               savefilename:fileName];
@@ -351,20 +361,35 @@ static ThemeFramework* _sharedMySingleton = nil;
 {
 	NSString *url = kSHORTCODE_URL(shortCode);
 	m_target = target;
-	[self downloadThemeByUrl:url success:success failure:failure];
+	[self downloadThemeByUrl:url success:success failure:failure progress:nil];
+}
+
+- (void)downloadThemeByShortCode:(NSString *)shortCode target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress
+{
+	NSString *url = kSHORTCODE_URL(shortCode);
+	m_target = target;
+	[self downloadThemeByUrl:url success:success failure:failure progress:progress];
 }
 
 - (void)downloadThemeByThemeId:(NSString *)themeId  target:(id)target success:(SEL)success failure:(SEL)failure
 {
 	NSString *url = kAPI_THEME_URL(themeId);
 	m_target = target;
-	[self downloadThemeByUrl:url success:success failure:failure];
+	[self downloadThemeByUrl:url success:success failure:failure progress:nil];
 }
 
-- (void)downloadThemeByUrl:(NSString *)url success:(SEL)success failure:(SEL)failure
+- (void)downloadThemeByThemeId:(NSString *)themeId  target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress
+{
+	NSString *url = kAPI_THEME_URL(themeId);
+	m_target = target;
+	[self downloadThemeByUrl:url success:success failure:failure progress:progress];
+}
+
+- (void)downloadThemeByUrl:(NSString *)url success:(SEL)success failure:(SEL)failure progress:(SEL)progress
 {
 	m_themeDownloadSuccess = success;
 	m_themeDownloadFailure = failure;
+	m_themeDownloadProgress = progress;
     
 	[self performSelectorInBackground:@selector(themeDownload:) withObject:url];
 }

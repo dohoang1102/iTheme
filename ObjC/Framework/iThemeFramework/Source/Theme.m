@@ -30,7 +30,7 @@
 {
 	self = [super init];
 	if(self) {
-		m_contents = dictionary;
+		m_contents = [dictionary retain];
 		m_themeId = [dictionary objectForKey:kKEY_THEMEID];
 		m_rootFolder = [folder retain];
 		[self setupControls];
@@ -95,6 +95,16 @@
 - (NSDictionary *)getKeyInfo:(NSString *)keyName
 {
 	return [m_controls objectForKey:keyName];
+}
+
+- (NSString *)shortCode
+{
+	NSString *sc = [m_contents objectForKey:kKEY_SHORTCODE];
+	if (sc != nil)
+	{
+		return sc;
+	}
+	return nil;
 }
 
 @end

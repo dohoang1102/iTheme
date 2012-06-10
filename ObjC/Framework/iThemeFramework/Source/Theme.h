@@ -48,5 +48,6 @@
 - (NSString *)getPathToThemeAsset:(NSString *)fileName;
 // Public get a theme key data as a dictionary;
 - (NSDictionary *)getKeyInfo:(NSString *)keyName;
-
+// Public Helper, returns the 'shortCode' for the theme
+- (NSString *)shortCode;
 @end

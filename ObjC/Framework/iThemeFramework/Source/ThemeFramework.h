@@ -72,12 +72,13 @@
 - (BOOL)addTheme:(NSData *)jsonData themeDictionary:(NSDictionary *)themeDictionary immediatesOnly:(BOOL)immediatesOnly;
 // Private: add a theme to the manifest, store a reference to the themeId and
 // the shortcode so that we can do quicker lookups
-- (BOOL)addThemeEntryToManifest:(NSString *)themeId shortCode:(NSString *)shortCode;
+- (BOOL)addThemeEntryToManifest:(NSString *)themeId shortCode:(NSString *)shortCode fullPackage:(BOOL)fullPackage;
 // Private: delete a theme
 - (BOOL)deleteTheme:(NSString *)themeId;
 // Private: remove a theme from the manifest
 - (BOOL)removeThemeEntryFromManifest:(NSString *)themeId;
-
+// Public: Get all themes in manifest, optionally fully downloaded only.
+- (NSArray *)getThemesInManifest:(BOOL)fullPackagesOnly error:(NSError **)error;
 // Public: Reads a theme off of disk by shortcode.
 - (Theme *)getThemeByShortCode:(NSString *)shortCode error:(NSError **)error;
 

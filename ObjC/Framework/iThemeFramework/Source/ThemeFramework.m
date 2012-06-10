@@ -154,11 +154,11 @@ static ThemeFramework* _sharedMySingleton = nil;
     
 	[self saveFile:jsonData folder:themeId filename:kTHEMENAME];
 	[self downloadFilesForTheme:themeId themeDictionary:themeDictionary immediatesOnly:immediatesOnly];
-	[self addThemeEntryToManifest:themeId shortCode:shortCode];
+	[self addThemeEntryToManifest:themeId shortCode:shortCode fullPackage:!immediatesOnly];
 	return TRUE;
 }
 
-- (BOOL)addThemeEntryToManifest:(NSString *)themeId shortCode:(NSString *)shortCode
+- (BOOL)addThemeEntryToManifest:(NSString *)themeId shortCode:(NSString *)shortCode fullPackage:(BOOL)fullPackage
 {
 	NSString *filePath = [self fullBasePath];
     
@@ -176,6 +176,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 	NSMutableDictionary *row = [[NSMutableDictionary alloc] init];
 	[row setValue:themeId forKey:kKEY_THEMEID];
 	[row setValue:shortCode forKey:kKEY_SHORTCODE];
+	[row setValue:[NSNumber numberWithBool:fullPackage] forKey:kKEY_FULL_PACKAGE];
     
 	[dict setObject:row forKey:themeId];
     
@@ -238,6 +239,46 @@ static ThemeFramework* _sharedMySingleton = nil;
 	[errorDetail setValue:kKEY_THEME_BY_SHORTCODE_NOT_FOUND forKey:NSLocalizedDescriptionKey];
 	*error = [NSError errorWithDomain:kKEY_ERROR_DOMAIN code:ThemeByShortCodeNotFound userInfo:errorDetail];
 	return nil;
+}
+
+- (NSArray *)getThemesInManifest:(BOOL)fullPackagesOnly error:(NSError **)error
+{
+	NSMutableArray *themes = [[NSMutableArray alloc] init];
+	NSString *filePath = [self fullBasePath];
+    
+	// create folder if not exist.
+	NSError *err;
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	[fileManager createDirectoryAtPath:filePath withIntermediateDirectories:TRUE attributes:nil error:&err];
+    
+	filePath = [filePath stringByAppendingPathComponent:kMANIFESTNAME];
+    
+	NSMutableDictionary *dict=[NSMutableDictionary dictionaryWithContentsOfFile:filePath];
+	if (dict == nil)
+	{
+		NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+		[errorDetail setValue:kKEY_MANIFEST_NOT_FOUND forKey:NSLocalizedDescriptionKey];
+		*error = [NSError errorWithDomain:kKEY_ERROR_DOMAIN code:ThemesManifestNotFound userInfo:errorDetail];
+		return nil;
+	}
+    
+	for (id key in dict)
+	{
+		NSDictionary *row = [dict objectForKey:key];
+		BOOL fullPackage = [[row objectForKey:kKEY_FULL_PACKAGE] boolValue];
+
+		BOOL canAdd = TRUE; //Add Everything
+		if (fullPackagesOnly == TRUE)
+			canAdd = fullPackage == fullPackagesOnly;
+		
+		if (canAdd)
+		{
+			[themes addObject:[self getTheme:key error:error]];
+		}
+
+	}
+	
+	return themes;
 }
 
 - (void)browseThemes:(id)target

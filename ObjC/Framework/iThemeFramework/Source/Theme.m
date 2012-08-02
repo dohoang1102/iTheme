@@ -30,9 +30,9 @@
 {
 	self = [super init];
 	if(self) {
-		m_contents = [dictionary retain];
+		m_contents = dictionary;
 		m_themeId = [dictionary objectForKey:kKEY_THEMEID];
-		m_rootFolder = [folder retain];
+		m_rootFolder = folder;
 		[self setupControls];
 	}
 	return self;

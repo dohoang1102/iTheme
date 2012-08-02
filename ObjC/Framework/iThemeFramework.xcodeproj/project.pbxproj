@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67BD351015CB0A600050D58A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675D438E15C9E2EF006C0714 /* Cocoa.framework */; };
+		67BD351615CB0A600050D58A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67BD351415CB0A600050D58A /* InfoPlist.strings */; };
+		67BD351E15CB0AA20050D58A /* Theme.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E2A5431542CDE8009CBB8C /* Theme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67BD351F15CB0AA20050D58A /* ThemeFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E2A5451542CDE8009CBB8C /* ThemeFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67BD352015CB0AA20050D58A /* ThemeFrameworkDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E2A5471542CDE8009CBB8C /* ThemeFrameworkDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67BD352115CB0AA20050D58A /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6EF191555D0A700B6E30E /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67BD352215CB0AA20050D58A /* Progress.h in Headers */ = {isa = PBXBuildFile; fileRef = 67F2D98215839B800071C237 /* Progress.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67BD352315CB0AAC0050D58A /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2A5441542CDE8009CBB8C /* Theme.m */; };
+		67BD352415CB0AAC0050D58A /* ThemeFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E2A5461542CDE8009CBB8C /* ThemeFramework.m */; };
+		67BD352515CB0AAC0050D58A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6EF1A1555D0A700B6E30E /* Constants.m */; };
+		67BD352615CB0AAC0050D58A /* Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D98315839B800071C237 /* Progress.m */; };
 		67D6EF1B1555D0A700B6E30E /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6EF191555D0A700B6E30E /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67D6EF1C1555D0A700B6E30E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6EF1A1555D0A700B6E30E /* Constants.m */; };
 		67E2A5351542CC93009CBB8C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67E2A5331542CC93009CBB8C /* InfoPlist.strings */; };
@@ -20,6 +31,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		675D437E15C9E2AF006C0714 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		675D438E15C9E2EF006C0714 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		675D439115C9E2EF006C0714 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		675D439215C9E2EF006C0714 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		675D439315C9E2EF006C0714 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		67BD350F15CB0A600050D58A /* iThemeFrameworkMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iThemeFrameworkMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67BD351315CB0A600050D58A /* iThemeFrameworkMac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iThemeFrameworkMac-Info.plist"; sourceTree = "<group>"; };
+		67BD351515CB0A600050D58A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		67BD351715CB0A600050D58A /* iThemeFrameworkMac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iThemeFrameworkMac-Prefix.pch"; sourceTree = "<group>"; };
 		67D6EF191555D0A700B6E30E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		67D6EF1A1555D0A700B6E30E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		67E2A52B1542CC93009CBB8C /* iThemeFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iThemeFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +57,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		67BD350B15CB0A600050D58A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67BD351015CB0A600050D58A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		67E2A5281542CC93009CBB8C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -47,10 +75,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		675D439015C9E2EF006C0714 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				675D439115C9E2EF006C0714 /* AppKit.framework */,
+				675D439215C9E2EF006C0714 /* CoreData.framework */,
+				675D439315C9E2EF006C0714 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		67BD351115CB0A600050D58A /* iThemeFrameworkMac */ = {
+			isa = PBXGroup;
+			children = (
+				67BD351215CB0A600050D58A /* Supporting Files */,
+			);
+			path = iThemeFrameworkMac;
+			sourceTree = "<group>";
+		};
+		67BD351215CB0A600050D58A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				67BD351315CB0A600050D58A /* iThemeFrameworkMac-Info.plist */,
+				67BD351415CB0A600050D58A /* InfoPlist.strings */,
+				67BD351715CB0A600050D58A /* iThemeFrameworkMac-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		67E2A5201542CC92009CBB8C = {
 			isa = PBXGroup;
 			children = (
 				67E2A5301542CC93009CBB8C /* iThemeFramework */,
+				67BD351115CB0A600050D58A /* iThemeFrameworkMac */,
 				67E2A52D1542CC93009CBB8C /* Frameworks */,
 				67E2A52C1542CC93009CBB8C /* Products */,
 			);
@@ -60,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				67E2A52B1542CC93009CBB8C /* iThemeFramework.framework */,
+				67BD350F15CB0A600050D58A /* iThemeFrameworkMac.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				67E2A52E1542CC93009CBB8C /* CoreFoundation.framework */,
+				675D437E15C9E2AF006C0714 /* Foundation.framework */,
+				675D438E15C9E2EF006C0714 /* Cocoa.framework */,
+				675D439015C9E2EF006C0714 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -110,6 +171,18 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		67BD350C15CB0A600050D58A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67BD351E15CB0AA20050D58A /* Theme.h in Headers */,
+				67BD351F15CB0AA20050D58A /* ThemeFramework.h in Headers */,
+				67BD352015CB0AA20050D58A /* ThemeFrameworkDelegate.h in Headers */,
+				67BD352115CB0AA20050D58A /* Constants.h in Headers */,
+				67BD352215CB0AA20050D58A /* Progress.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		67E2A54D1542CE36009CBB8C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -125,6 +198,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		67BD350E15CB0A600050D58A /* iThemeFrameworkMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67BD351B15CB0A600050D58A /* Build configuration list for PBXNativeTarget "iThemeFrameworkMac" */;
+			buildPhases = (
+				67BD350A15CB0A600050D58A /* Sources */,
+				67BD350B15CB0A600050D58A /* Frameworks */,
+				67BD350C15CB0A600050D58A /* Headers */,
+				67BD350D15CB0A600050D58A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iThemeFrameworkMac;
+			productName = iThemeFrameworkMac;
+			productReference = 67BD350F15CB0A600050D58A /* iThemeFrameworkMac.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		67E2A52A1542CC93009CBB8C /* iThemeFramework */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 67E2A5391542CC93009CBB8C /* Build configuration list for PBXNativeTarget "iThemeFramework" */;
@@ -166,11 +257,20 @@
 			projectRoot = "";
 			targets = (
 				67E2A52A1542CC93009CBB8C /* iThemeFramework */,
+				67BD350E15CB0A600050D58A /* iThemeFrameworkMac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		67BD350D15CB0A600050D58A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67BD351615CB0A600050D58A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		67E2A5291542CC93009CBB8C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,6 +298,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		67BD350A15CB0A600050D58A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67BD352315CB0AAC0050D58A /* Theme.m in Sources */,
+				67BD352415CB0AAC0050D58A /* ThemeFramework.m in Sources */,
+				67BD352515CB0AAC0050D58A /* Constants.m in Sources */,
+				67BD352615CB0AAC0050D58A /* Progress.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		67E2A5271542CC93009CBB8C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -212,6 +323,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		67BD351415CB0A600050D58A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67BD351515CB0A600050D58A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		67E2A5331542CC93009CBB8C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -223,11 +342,61 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		67BD351C15CB0A600050D58A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iThemeFrameworkMac/iThemeFrameworkMac-Prefix.pch";
+				INFOPLIST_FILE = "iThemeFrameworkMac/iThemeFrameworkMac-Info.plist";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
+				MACH_O_TYPE = mh_dylib;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		67BD351D15CB0A600050D58A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iThemeFrameworkMac/iThemeFrameworkMac-Prefix.pch";
+				INFOPLIST_FILE = "iThemeFrameworkMac/iThemeFrameworkMac-Info.plist";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
 		67E2A5371542CC93009CBB8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					"$(ARCHS_STANDARD_64_BIT)",
+				);
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -249,7 +418,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT) x86_64 i386";
 				WRAPPER_EXTENSION = "";
 			};
 			name = Debug;
@@ -258,7 +427,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					"$(ARCHS_STANDARD_64_BIT)",
+				);
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -274,7 +446,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT) x86_64 i386";
 				WRAPPER_EXTENSION = "";
 			};
 			name = Release;
@@ -282,11 +454,15 @@
 		67E2A53A1542CC93009CBB8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iThemeFramework/iThemeFramework-Prefix.pch";
 				INFOPLIST_FILE = "iThemeFramework/iThemeFramework-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -294,11 +470,15 @@
 		67E2A53B1542CC93009CBB8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iThemeFramework/iThemeFramework-Prefix.pch";
 				INFOPLIST_FILE = "iThemeFramework/iThemeFramework-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -306,6 +486,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		67BD351B15CB0A600050D58A /* Build configuration list for PBXNativeTarget "iThemeFrameworkMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67BD351C15CB0A600050D58A /* Debug */,
+				67BD351D15CB0A600050D58A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		67E2A5251542CC92009CBB8C /* Build configuration list for PBXProject "iThemeFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

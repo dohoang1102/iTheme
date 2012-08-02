@@ -17,7 +17,7 @@
 //  Copyright (c) 2012 GameWeaver LTD. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+
 
 extern NSString * const kMANIFESTNAME;
 extern NSString * const kTHEMENAME;

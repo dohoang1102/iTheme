@@ -32,7 +32,7 @@
 	if(self) {
 		m_contents = dictionary;
 		m_themeId = [dictionary objectForKey:kKEY_THEMEID];
-		m_rootFolder = folder;
+		m_rootFolder = [folder retain];
 		[self setupControls];
 	}
 	return self;

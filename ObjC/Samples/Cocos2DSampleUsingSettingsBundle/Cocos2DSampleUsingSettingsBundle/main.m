@@ -10,10 +10,17 @@
 //  License for the specific language governing permissions and limitations under
 //  the License.
 //
-// Prefix header for all source files of the 'iThemeFrameworkMac' target in the 'iThemeFrameworkMac' project
+//  main.m
+//  Cocos2DSampleUsingSettingsBundle
+//
+//  Created by Chris Davis on 03/08/2012.
+//  Copyright (c) 2012 QuantumLogic LTD. All rights reserved.
 //
 
-#ifdef __OBJC__
-	#import <Cocoa/Cocoa.h>
-	#import <Foundation/Foundation.h>
-#endif
+int main(int argc, char *argv[])
+{
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    int retVal = UIApplicationMain(argc, argv, nil, @"AppController");
+    [pool release];
+    return retVal;
+}

@@ -10,10 +10,16 @@
 //  License for the specific language governing permissions and limitations under
 //  the License.
 //
-// Prefix header for all source files of the 'iThemeFrameworkMac' target in the 'iThemeFrameworkMac' project
-//
 
-#ifdef __OBJC__
-	#import <Cocoa/Cocoa.h>
-	#import <Foundation/Foundation.h>
-#endif
+@interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>
+{
+	UIWindow *window_;
+	UINavigationController *navController_;
+	CCDirectorIOS	*director_;							// weak ref
+}
+
+@property (nonatomic, retain) UIWindow *window;
+@property (readonly) UINavigationController *navController;
+@property (readonly) CCDirectorIOS *director;
+
+@end

@@ -31,6 +31,7 @@ extern NSString * const kKEY_RESULTS;
 extern NSString * const kKEY_PAGING;
 extern NSString * const kKEY_PAGING_NEXT;
 extern NSString * const kKEY_KEYNAME;
+extern NSString * const kKEY_LASTEDITDATE;
 extern NSString * const kKEY_REQUIRESIMMEDIATEDOWNLOAD;
 extern NSString * const kKEY_ERROR_DOMAIN;
 extern NSString * const kKEY_RESPONSE_MISSING;
@@ -50,6 +51,8 @@ extern NSString * const kKEY_THEME_BY_SHORTCODE_NOT_FOUND;
 extern NSString * const kKEY_FILENAME;
 extern NSString * const kKEY_TEXT;
 extern NSString * const kKEY_FULL_PACKAGE;
+extern NSString * const kDATE_FORMAT;
+extern NSString * const kHTTP_HEAD;
 
 #define TIMEOUT 30
 #define kAPI_THEME_URL(__themeId__) [NSString stringWithFormat:@"http://api.itheme.com/v1/themes/%@", __themeId__];

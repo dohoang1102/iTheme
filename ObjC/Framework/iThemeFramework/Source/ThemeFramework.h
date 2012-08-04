@@ -26,6 +26,8 @@
 @interface ThemeFramework : NSObject
 {
 	NSString *m_appKey;
+	NSString *m_themeKey;
+	BOOL m_frameworkEnabled;
 	NSString *m_rootFolder;
 	id<ThemeFrameworkDelegate> m_delegate;
 	SEL m_jsonToDictionary; // - (NSDictionary *)convertJSONToDictionary:(NSString *)json
@@ -42,6 +44,8 @@
 	Theme* m_currentTheme;
 }
 @property (nonatomic, retain) NSString *AppKey;
+@property (nonatomic, retain) NSString *ThemeKey;
+@property (nonatomic) BOOL FrameworkEnabled;
 @property (nonatomic, retain) NSString *Folder;
 @property (nonatomic,assign) id<ThemeFrameworkDelegate> Delegate;
 @property (nonatomic) SEL JSONToDictionary;
@@ -72,11 +76,13 @@
 - (BOOL)addTheme:(NSData *)jsonData themeDictionary:(NSDictionary *)themeDictionary immediatesOnly:(BOOL)immediatesOnly;
 // Private: add a theme to the manifest, store a reference to the themeId and
 // the shortcode so that we can do quicker lookups
-- (BOOL)addThemeEntryToManifest:(NSString *)themeId shortCode:(NSString *)shortCode fullPackage:(BOOL)fullPackage;
+- (BOOL)addThemeEntryToManifest:(NSString *)themeId shortCode:(NSString *)shortCode fullPackage:(BOOL)fullPackage lastEditDate:(NSDate *)lastEditDate;
 // Private: delete a theme
 - (BOOL)deleteTheme:(NSString *)themeId;
 // Private: remove a theme from the manifest
 - (BOOL)removeThemeEntryFromManifest:(NSString *)themeId;
+// Public: Check if the theme online is newer than the one we have.
+- (BOOL)themeIsUpToDate:(NSString *)shortCode onlineLastEditDate:(NSDate *)onlineLastEditDate;
 // Public: Get all themes in manifest, optionally fully downloaded only.
 - (NSArray *)getThemesInManifest:(BOOL)fullPackagesOnly error:(NSError **)error;
 // Public: Reads a theme off of disk by shortcode.
@@ -120,5 +126,15 @@
 
 // Private: Returns an error object.
 - (NSError *)provideError:(NSString *)message errorcode:(int)errorcode;
+
+// Private: Returns a date as string
+- (NSDate *)dateFromString:(NSString *)dateAsString;
+
+// Public: Returns the last edit date of a theme on a remote
+// server by the shortCode
+- (NSDate *)lastEditDateOfRemoteThemeByShortCode:(NSString *)shortCode;
+
+// Public: Returns the headers from a HEAD request to a URL
+- (NSDictionary *)headRequest:(NSString *)theURL;
 
 @end

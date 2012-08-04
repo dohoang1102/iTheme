@@ -22,6 +22,8 @@
 @implementation ThemeFramework
 
 @synthesize AppKey = m_appKey;
+@synthesize ThemeKey = m_themeKey;
+@synthesize FrameworkEnabled = m_frameworkEnabled;
 @synthesize Folder = m_rootFolder;
 @synthesize Delegate = m_delegate;
 @synthesize JSONToDictionary = m_jsonToDictionary;
@@ -151,14 +153,16 @@ static ThemeFramework* _sharedMySingleton = nil;
 {
 	NSString *themeId = [themeDictionary objectForKey:kKEY_THEMEID];
 	NSString *shortCode = [themeDictionary objectForKey:kKEY_SHORTCODE];
-    
+	NSString *lastEditDateString = [themeDictionary objectForKey:kKEY_LASTEDITDATE];
+	NSDate *lastEditDate = [self dateFromString:lastEditDateString];
+
 	[self saveFile:jsonData folder:themeId filename:kTHEMENAME];
 	[self downloadFilesForTheme:themeId themeDictionary:themeDictionary immediatesOnly:immediatesOnly];
-	[self addThemeEntryToManifest:themeId shortCode:shortCode fullPackage:!immediatesOnly];
+	[self addThemeEntryToManifest:themeId shortCode:shortCode fullPackage:!immediatesOnly lastEditDate:lastEditDate];
 	return TRUE;
 }
 
-- (BOOL)addThemeEntryToManifest:(NSString *)themeId shortCode:(NSString *)shortCode fullPackage:(BOOL)fullPackage
+- (BOOL)addThemeEntryToManifest:(NSString *)themeId shortCode:(NSString *)shortCode fullPackage:(BOOL)fullPackage lastEditDate:(NSDate *)lastEditDate
 {
 	NSString *filePath = [self fullBasePath];
     
@@ -176,6 +180,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 	NSMutableDictionary *row = [[NSMutableDictionary alloc] init];
 	[row setValue:themeId forKey:kKEY_THEMEID];
 	[row setValue:shortCode forKey:kKEY_SHORTCODE];
+	[row setValue:lastEditDate forKey:kKEY_LASTEDITDATE];
 	[row setValue:[NSNumber numberWithBool:fullPackage] forKey:kKEY_FULL_PACKAGE];
     
 	[dict setObject:row forKey:themeId];
@@ -200,6 +205,41 @@ static ThemeFramework* _sharedMySingleton = nil;
 	NSMutableDictionary *dict=[NSMutableDictionary dictionaryWithContentsOfFile:filePath];
 	[dict removeObjectForKey:themeId];
 	return [dict writeToFile:filePath atomically:YES];
+}
+
+- (BOOL)themeIsUpToDate:(NSString *)shortCode onlineLastEditDate:(NSDate *)onlineLastEditDate
+{
+	NSString *filePath = [self fullBasePath];
+    
+	// create folder if not exist.
+	NSError *err;
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	[fileManager createDirectoryAtPath:filePath withIntermediateDirectories:TRUE attributes:nil error:&err];
+	filePath = [filePath stringByAppendingPathComponent:kMANIFESTNAME];
+    
+	NSMutableDictionary *dict=[NSMutableDictionary dictionaryWithContentsOfFile:filePath];
+	
+	if (dict == nil)
+		return FALSE;
+	
+	for (id key in dict)
+	{
+		NSDictionary *row = [dict objectForKey:key];
+		NSString *shortCodeInRow = [row objectForKey:kKEY_SHORTCODE];
+		NSDate *lastEditDate = [row objectForKey:kKEY_LASTEDITDATE];
+		if (shortCodeInRow != nil && lastEditDate != nil)
+		{
+			if ([shortCodeInRow isEqualToString:shortCode])
+			{
+				if ([lastEditDate laterDate:onlineLastEditDate] 
+					|| [lastEditDate isEqualToDate:onlineLastEditDate])
+				{
+					return TRUE;
+				}
+			}
+		}
+	}
+	return FALSE;
 }
 
 - (Theme *)getThemeByShortCode:(NSString *)shortCode error:(NSError **)error
@@ -546,6 +586,41 @@ static ThemeFramework* _sharedMySingleton = nil;
 	NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
 	[errorDetail setValue:message forKey:NSLocalizedDescriptionKey];
 	return [NSError errorWithDomain:kKEY_ERROR_DOMAIN code:errorcode userInfo:errorDetail];   
+}
+
+- (NSDate *)dateFromString:(NSString *)dateAsString
+{
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:kDATE_FORMAT];
+	NSDate *dateFromString = [[NSDate alloc] init];
+	dateFromString = [dateFormatter dateFromString:dateAsString];
+	return dateFromString;
+}
+
+- (NSDate *)lastEditDateOfRemoteThemeByShortCode:(NSString *)shortCode
+{
+	NSString *url = kSHORTCODE_URL(shortCode);
+	NSDictionary *dic = [self headRequest:url];
+	if (dic == nil)
+		return nil;
+		
+	return [self dateFromString:[dic objectForKey:kKEY_LASTEDITDATE]];
+}
+
+- (NSDictionary *)headRequest:(NSString *)theURL
+{
+	NSURL *url = [NSURL URLWithString:theURL];
+	NSMutableURLRequest *theRequest = [NSMutableURLRequest  requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:TIMEOUT];
+	[theRequest setHTTPMethod:kHTTP_HEAD];
+	NSHTTPURLResponse *response = nil;
+	[NSURLConnection sendSynchronousRequest:theRequest returningResponse:&response error:nil];
+	
+	if (response != nil)
+	{
+		return [response allHeaderFields];
+	}
+	
+	return nil;
 }
 
 @end

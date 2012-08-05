@@ -180,7 +180,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 	NSMutableDictionary *row = [[NSMutableDictionary alloc] init];
 	[row setValue:themeId forKey:kKEY_THEMEID];
 	[row setValue:shortCode forKey:kKEY_SHORTCODE];
-	[row setValue:lastEditDate forKey:kKEY_LASTEDITDATE];
+	[row setObject:lastEditDate forKey:kKEY_LASTEDITDATE];
 	[row setValue:[NSNumber numberWithBool:fullPackage] forKey:kKEY_FULL_PACKAGE];
     
 	[dict setObject:row forKey:themeId];
@@ -231,8 +231,8 @@ static ThemeFramework* _sharedMySingleton = nil;
 		{
 			if ([shortCodeInRow isEqualToString:shortCode])
 			{
-				if ([lastEditDate laterDate:onlineLastEditDate] 
-					|| [lastEditDate isEqualToDate:onlineLastEditDate])
+				NSComparisonResult result = [lastEditDate compare:onlineLastEditDate];
+				if (result == NSOrderedDescending || result == NSOrderedSame)
 				{
 					return TRUE;
 				}
@@ -592,6 +592,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 {
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat:kDATE_FORMAT];
+	[dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:kUTC]];
 	NSDate *dateFromString = [[NSDate alloc] init];
 	dateFromString = [dateFormatter dateFromString:dateAsString];
 	return dateFromString;
@@ -604,7 +605,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 	if (dic == nil)
 		return nil;
 		
-	return [self dateFromString:[dic objectForKey:kKEY_LASTEDITDATE]];
+	return [self dateFromString:[dic objectForKey:kLAST_MODIFIED]];
 }
 
 - (NSDictionary *)headRequest:(NSString *)theURL

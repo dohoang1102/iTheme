@@ -53,6 +53,8 @@ extern NSString * const kKEY_TEXT;
 extern NSString * const kKEY_FULL_PACKAGE;
 extern NSString * const kDATE_FORMAT;
 extern NSString * const kHTTP_HEAD;
+extern NSString * const kLAST_MODIFIED;
+extern NSString * const kUTC;
 
 #define TIMEOUT 30
 #define kAPI_THEME_URL(__themeId__) [NSString stringWithFormat:@"http://api.itheme.com/v1/themes/%@", __themeId__];

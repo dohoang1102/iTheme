@@ -34,7 +34,7 @@ there are so many great ones out there already, you can simply plugin.
 
 #### Browsing Themes for an App
 
-When Browsing for Themes, please implement the UIViewController<ThemeFrameworkDelegate> Protocol like so:
+When Browsing for Themes, please implement the UIViewController< ThemeFrameworkDelegate > Protocol like so:
 
 ```objective-c
 - (void)browseCallback:(NSArray *)themes cursor:(NSString *)cursor;

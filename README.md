@@ -95,3 +95,33 @@ Then, use the following code
 	float p = progress.percentage/100;
 }
 ```
+
+
+#### Downloading a Theme by Theme Id
+
+```objective-c
+
+- (void)init
+{
+	[[ThemeFramework instance] downloadThemeByThemeId:@"----the----theme----id----"
+				target:self 
+				success:@selector(success:) 
+				failure:@selector(failure:) 
+				progress:@selector(progress:)];
+}	
+- (void)success:(Theme *)theme
+{
+	if (theme == nil)
+		return;
+	[[ThemeFramework instance] setCurrentTheme:theme];
+}
+- (void)failure:(NSError *)err
+{
+	NSLog([err localizedDescription]);
+}
+- (void)progress:(Progress *)progress
+{
+	float p = progress.percentage/100;
+}
+
+```

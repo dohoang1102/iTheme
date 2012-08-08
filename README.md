@@ -125,3 +125,54 @@ Then, use the following code
 }
 
 ```
+
+#### Using the Theme in your App
+
+Once you have downloaded and set the Theme for your App, you can start changing
+the way your app looks. Here are some examples:
+
+```objective-c
+
+-(void)changeTheme
+{
+	Theme* currentTheme = [[ThemeFramework instance] CurrentTheme];
+	if (currentTheme == nil)
+		return;
+    
+	//Set background image, by key name
+	self.background.image = [self returnUIImage:currentTheme keyName:@"shortCodeBG"];
+
+	//Cocos2d example using the fileName as the key
+	CCSprite *loadingBar = [CCSprite spriteWithFile:[self iThemePathToFile:@"loadingBar.png"]];
+}
+
+// Very basic method to find the correct file,
+// will pick a themed file if enabled & found
+- (NSString *)iThemePathToFile:(NSString *)filePath
+{
+	if ([ThemeFramework instance].FrameworkEnabled)
+	{
+		Theme *theme = [[ThemeFramework instance] CurrentTheme];
+		if (theme != nil)
+		{
+			NSString *themePath = [theme getPathToThemeAsset:filePath];
+			if ([[NSFileManager defaultManager] fileExistsAtPath:themePath])
+			{
+				return themePath;
+			}
+		}
+	}
+	
+	return [[NSBundle mainBundle] pathForResource:filePath ofType:nil];
+}
+
+// Could implement some caching here.
+- (UIImage *)returnUIImage:(Theme *)theme keyName:(NSString *)keyName
+{
+	NSString *imagePath = [theme pathToDataFileForKey:keyName];
+	if (imagePath != nil)
+		return [UIImage imageWithContentsOfFile:imagePath];
+	return nil;
+}
+
+```

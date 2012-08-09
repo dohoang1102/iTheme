@@ -2,9 +2,24 @@
 
 ### Change the theme of your App in realtime
 
-The iTheme service lets you create themes for Apps online, this framework plugs into
-the iTheme API to get the Theme into the App.
-You can view the sample projects in the /Samples directory
+The iTheme service lets you create themes for Apps online, this Framework plugs into
+the iTheme API, to get the Theme into the App.
+
+Sections
+------------
+
+1. API URL's
+2. [Framework](https://github.com/GameWeaver/iTheme/tree/master/ObjC/Framework) Code usage
+3. [Samples](https://github.com/GameWeaver/iTheme/tree/master/ObjC/Samples)
+
+API URL's
+---------
+
+* http://api.itheme.com/v1/themes?s=SHORTCODE
+* http://api.itheme.com/v1/themes/THEMEID
+
+Framework Code Usage
+--------------------
 
 #### Framework Initialisation
 

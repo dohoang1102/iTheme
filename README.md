@@ -27,6 +27,15 @@ API
 
 * `curl --head http://api.itheme.com/v1/themes?s=SHORTCODE`
 
+Possible response codes
+
+* `POST 5000` Not Supported
+* `GET 5103` Failed
+* `GET 5104` Success
+* `GET 5105` Theme not Found
+* `PUT 5200` Not Supported
+* `DELETE 5300` Not Supported
+
 **Getting a theme by ThemeId:**
 
 * `curl -X GET http://api.itheme.com/v1/themes/THEMEID` Returns a theme

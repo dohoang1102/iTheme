@@ -1,9 +1,11 @@
 # iTheme
 
+### API Version 1
+
 ### Change the theme of your App in realtime
 
-The iTheme service lets you create themes for Apps online, this Framework plugs into
-the iTheme API, to get the Theme into the App.
+The iTheme service lets you create themes for Apps online.
+Here is a Framework that plugs into the iTheme API.
 
 Sections
 ------------
@@ -15,7 +17,7 @@ Sections
 API
 ---
 
-Quick overview of the available urls
+**Quick Overview**
 
 * `GET http://api.itheme.com/v1/themes?s=SHORTCODE` Returns a theme
 * `GET http://api.itheme.com/v1/themes/THEMEID` Returns a theme

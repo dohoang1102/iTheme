@@ -8,15 +8,54 @@ the iTheme API, to get the Theme into the App.
 Sections
 ------------
 
-1. API URL's
+1. API
 2. [Framework](https://github.com/GameWeaver/iTheme/tree/master/ObjC/Framework) Code usage
 3. [Samples](https://github.com/GameWeaver/iTheme/tree/master/ObjC/Samples)
 
-API URL's
----------
+API
+---
 
-* http://api.itheme.com/v1/themes?s=SHORTCODE
-* http://api.itheme.com/v1/themes/THEMEID
+Quick overview of the available urls
+
+* `GET http://api.itheme.com/v1/themes?s=SHORTCODE` Returns a theme
+* `GET http://api.itheme.com/v1/themes/THEMEID` Returns a theme
+* `GET http://api.itheme.com/v1/apps/APPID/themes` Returns a collection of themes for the APPID
+
+**Getting a theme by Short Code:**
+
+* `curl --head http://api.itheme.com/v1/themes?s=SHORTCODE`
+
+**Getting a theme by ThemeId:**
+
+* `curl -X GET http://api.itheme.com/v1/themes/THEMEID` Returns a theme
+
+Possible response codes
+
+* `POST 4000` Not Supported
+* `GET 4103` Failed
+* `GET 4104` Success
+* `GET 4105` Theme not Found
+* `PUT 4200` Not Supported
+* `DELETE 4300` Not Supported
+
+**Getting themes for an AppId**
+
+* `curl -X GET http://api.itheme.com/v1/apps/APPID/themes` Returns a collection of themes for the APPID
+
+Possible response codes
+
+* `POST 8000` Not Supported
+* `GET 8103` Failed
+* `GET 8104` Success
+* `PUT 8200` Not Supported
+* `DELETE 8300` Not Supported
+
+**Getting the theme headers**
+
+* `curl --head http://api.itheme.com/v1/themes?s=SHORTCODE` Returns HEADERS only of a theme, useful for 
+getting the last edit date of the theme.
+
+
 
 Framework Code Usage
 --------------------

@@ -25,7 +25,7 @@ API
 
 **Getting a theme by Short Code:**
 
-* `curl --head http://api.itheme.com/v1/themes?s=SHORTCODE`
+* `curl -X GET http://api.itheme.com/v1/themes?s=SHORTCODE`
 
 Possible response codes
 

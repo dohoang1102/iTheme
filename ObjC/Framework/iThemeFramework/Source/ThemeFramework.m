@@ -79,6 +79,9 @@ static ThemeFramework* _sharedMySingleton = nil;
 
 - (BOOL)saveFile:(NSData *)data folder:(NSString *)folder filename:(NSString *)filename
 {
+	if (m_cancelled)
+		return FALSE;
+	
 	// Get root path.
 	NSString *filePath = [self fullBasePath];
     
@@ -112,7 +115,8 @@ static ThemeFramework* _sharedMySingleton = nil;
 	Progress *p = [[Progress alloc] init];
 	p.TotalItemsToDownload = controlCount;
 	
-	for (int i = 0; i < controlCount; i++)
+	int i = 0;
+	while (i < controlCount && m_cancelled != TRUE)
 	{
 		NSDictionary *control = [controls objectAtIndex:i];
 		NSNumber *requiresImmediateDownload = [control objectForKey:kKEY_REQUIRESIMMEDIATEDOWNLOAD];
@@ -145,7 +149,9 @@ static ThemeFramework* _sharedMySingleton = nil;
 				}
 			}
 		}
-	}
+		i++;
+	} 
+	
 	return allOK;
 }
 
@@ -164,6 +170,9 @@ static ThemeFramework* _sharedMySingleton = nil;
 
 - (BOOL)addThemeEntryToManifest:(NSString *)themeId shortCode:(NSString *)shortCode fullPackage:(BOOL)fullPackage lastEditDate:(NSDate *)lastEditDate
 {
+	if (m_cancelled)
+		return FALSE;
+	
 	NSString *filePath = [self fullBasePath];
     
 	// create folder if not exist.
@@ -492,12 +501,16 @@ static ThemeFramework* _sharedMySingleton = nil;
 	m_themeDownloadFailure = failure;
 	m_themeDownloadProgress = progress;
 	m_themeDownloadCancelled = cancelled;
+	m_cancelled = FALSE;
     
 	[self performSelectorInBackground:@selector(themeDownload:) withObject:url];
 }
      
 - (void)themeDownload:(NSString *)theUrl
 {
+	if (m_cancelled)
+		return;
+	
 	NSURL *url = [NSURL URLWithString:theUrl];
 	NSURLRequest *theRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:TIMEOUT];
 	NSError *jsonUrlError = nil;
@@ -543,6 +556,9 @@ static ThemeFramework* _sharedMySingleton = nil;
 	NSString *themeJson = [self.Delegate performSelector:self.DictionaryToJSON withObject:themeDictionary];
 	NSData* themeData=[themeJson dataUsingEncoding:NSUTF8StringEncoding];
     
+	if (m_cancelled)
+		return;
+	
 	[self addTheme:themeData themeDictionary:themeDictionary immediatesOnly:FALSE];
 	
 	if ([m_target respondsToSelector:m_themeDownloadSuccess])
@@ -650,6 +666,11 @@ static ThemeFramework* _sharedMySingleton = nil;
 	m_themeDownloadSuccess = nil;
 	m_themeDownloadFailure = nil;
 	m_themeDownloadProgress = nil;
+	
+	if ([m_target respondsToSelector:m_themeDownloadCancelled])
+	{
+		[m_target performSelector:m_themeDownloadCancelled];
+	}
 }
 
 @end

@@ -37,6 +37,8 @@
 	SEL m_themeDownloadFailure;
 	SEL m_themeDownloadProgress; //- (void)update:(Progress *)progress
 	SEL m_themeDownloadCancelled;
+	
+	BOOL m_cancelled;
     
 	id m_target;
 	int m_limit;

@@ -10,9 +10,10 @@ Here is a Framework that plugs into the iTheme API.
 Sections
 ------------
 
-1. API
-2. [Framework](https://github.com/GameWeaver/iTheme/tree/master/ObjC/Framework) Code usage
-3. [Samples](https://github.com/GameWeaver/iTheme/tree/master/ObjC/Samples)
+1. [API](https://github.com/Gameweaver/itheme#api)
+2. [Response](https://github.com/Gameweaver/itheme#response)
+3. [Framework](https://github.com/GameWeaver/iTheme/tree/master/ObjC/Framework) Code usage
+4. [Samples](https://github.com/GameWeaver/iTheme/tree/master/ObjC/Samples)
 
 API
 ---
@@ -22,6 +23,7 @@ API
 * `GET http://api.itheme.com/v1/themes?s=SHORTCODE` Returns a theme
 * `GET http://api.itheme.com/v1/themes/THEMEID` Returns a theme
 * `GET http://api.itheme.com/v1/apps/APPID/themes` Returns a collection of themes for the APPID
+* `HEAD http://api.itheme.com/v1/themes?s=SHORTCODE` Get's the headers for a theme
 
 **Getting a theme by Short Code:**
 
@@ -67,6 +69,27 @@ Possible response codes
 getting the last edit date of the theme.
 
 
+Response
+--------
+
+#### Data Format
+
+iTheme currently returns data in JSON format.
+
+#### Data Structure
+
+```json
+"response":
+	{
+	"code": Integer
+	"header":
+		{
+			"message": "action status",
+			"proposal": "proposed action"
+		},
+		"body": JSON_BLOCK
+	}
+```
 
 Framework Code Usage
 --------------------

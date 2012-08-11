@@ -78,6 +78,8 @@ iTheme currently returns data in JSON format.
 
 #### Data Structure
 
+All JSON responses have the following structure.
+
 ```json
 "response":
 	{
@@ -87,8 +89,62 @@ iTheme currently returns data in JSON format.
 			"message": "action status",
 			"proposal": "proposed action"
 		},
-		"body": JSON_BLOCK
+	"body": JSON_BLOCK
 	}
+```
+
+#### Example Theme Response
+
+Cut down for brevity
+
+```json
+{
+    "response": {
+        "body": {
+            "description": "DESCRIPTION",
+            "app": {
+                "name": "APP_TITLE",
+                "appId": "APP_ID"
+            },
+            "private": false,
+            "shortCode": "SHORTCODE",
+            "name": "THEME_TITLE",
+            "themeId": "THEME_ID",
+            "createDate": "2012-08-05 19:51:29",
+            "author": {
+                "username": "CREATOR_USERNAME"
+            },
+            "lastEditDate": "2012-08-06 19:37:07",
+            "controls": [
+                {
+                    "description": "Home Background",
+                    "name": "home_bg.png",
+                    "assetId": "ASSET_ID",
+                    "requiresImmediateDownload": true,
+                    "fileName": "home_bg-hd.png",
+                    "assetUrl": "URL_TO_ASSET",
+                    "text": "",
+                    "externalUrl": "",
+                },
+                {
+                    "description": "game bg",
+                    "name": "bg",
+                    "assetId": "ASSET_ID",
+                    "requiresImmediateDownload": true,
+                    "fileName": "bg-hd.png",
+                    "assetUrl": "URL_TO_ASSET",
+                    "text": "",
+                    "externalUrl": "",
+                },
+            live": true
+        },
+        "header": {
+            "message": "",
+            "proposal": ""
+        },
+        "code": 5104
+    }
+}
 ```
 
 Framework Code Usage

@@ -10,10 +10,10 @@ Here is a Framework that plugs into the iTheme API.
 Sections
 ------------
 
-1. [API](https://github.com/Gameweaver/itheme#api)
-2. [Response](https://github.com/Gameweaver/itheme#response)
-3. [Framework](https://github.com/GameWeaver/iTheme/tree/master/ObjC/Framework) Code usage
-4. [Samples](https://github.com/GameWeaver/iTheme/tree/master/ObjC/Samples)
+1. [API](https://github.com/Gameweaver/itheme#api) API Structure
+2. [Response](https://github.com/Gameweaver/itheme#response) Response Format
+3. [Framework](https://github.com/GameWeaver/iTheme/tree/master/ObjC/Framework) Ready to use Framework
+4. [Samples](https://github.com/GameWeaver/iTheme/tree/master/ObjC/Samples) Ready to use Samples
 
 API
 ---

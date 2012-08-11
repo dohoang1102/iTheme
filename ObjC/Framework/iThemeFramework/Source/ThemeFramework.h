@@ -36,6 +36,7 @@
 	SEL m_themeDownloadSuccess;
 	SEL m_themeDownloadFailure;
 	SEL m_themeDownloadProgress; //- (void)update:(Progress *)progress
+	SEL m_themeDownloadCancelled;
     
 	id m_target;
 	int m_limit;
@@ -105,9 +106,11 @@
 // Public: Download a theme by shortcode
 - (void)downloadThemeByShortCode:(NSString *)shortCode target:(id)target success:(SEL)success failure:(SEL)failure;
 - (void)downloadThemeByShortCode:(NSString *)shortCode target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress;
+- (void)downloadThemeByShortCode:(NSString *)shortCode target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress cancelled:(SEL)cancelled;
 // Public: Download a theme by themeId
 - (void)downloadThemeByThemeId:(NSString *)themeId target:(id)target success:(SEL)success failure:(SEL)failure;
 - (void)downloadThemeByThemeId:(NSString *)themeId target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress;
+- (void)downloadThemeByThemeId:(NSString *)themeId target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress cancelled:(SEL)cancelled;
 // Private: Calls themeDownload, sets callback methods
 - (void)downloadThemeByUrl:(NSString *)url success:(SEL)success failure:(SEL)failure progress:(SEL)progress;
 // Private: Downloads a theme
@@ -136,5 +139,8 @@
 
 // Public: Returns the headers from a HEAD request to a URL
 - (NSDictionary *)headRequest:(NSString *)theURL;
+
+// Public: Cancels a theme download
+- (void)cancelThemeDownload;
 
 @end

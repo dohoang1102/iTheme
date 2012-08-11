@@ -438,39 +438,60 @@ static ThemeFramework* _sharedMySingleton = nil;
 	}
 }
 
+#pragma mark - ShortCode methods
+
 - (void)downloadThemeByShortCode:(NSString *)shortCode target:(id)target success:(SEL)success failure:(SEL)failure
 {
-	NSString *url = kSHORTCODE_URL(shortCode);
-	m_target = target;
-	[self downloadThemeByUrl:url success:success failure:failure progress:nil];
+	[self downloadThemeByShortCode:shortCode target:target success:success failure:failure progress:nil];
 }
 
 - (void)downloadThemeByShortCode:(NSString *)shortCode target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress
 {
+	[self downloadThemeByShortCode:shortCode target:target success:success failure:failure progress:nil cancelled:nil];
+}
+
+- (void)downloadThemeByShortCode:(NSString *)shortCode 
+						  target:(id)target 
+						 success:(SEL)success 
+						 failure:(SEL)failure 
+						progress:(SEL)progress
+						cancelled:(SEL)cancelled
+{
 	NSString *url = kSHORTCODE_URL(shortCode);
 	m_target = target;
-	[self downloadThemeByUrl:url success:success failure:failure progress:progress];
+	[self downloadThemeByUrl:url success:success failure:failure progress:progress cancelled:cancelled];
 }
 
-- (void)downloadThemeByThemeId:(NSString *)themeId  target:(id)target success:(SEL)success failure:(SEL)failure
+#pragma mark - ThemeId methods
+
+- (void)downloadThemeByThemeId:(NSString *)themeId target:(id)target success:(SEL)success failure:(SEL)failure
+{
+	[self downloadThemeByThemeId:themeId target:target success:success failure:failure progress:nil];
+}
+
+- (void)downloadThemeByThemeId:(NSString *)themeId target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress
+{
+	[self downloadThemeByThemeId:themeId target:target success:success failure:failure progress:nil cancelled:nil];
+}
+
+- (void)downloadThemeByThemeId:(NSString *)themeId 
+						target:(id)target 
+					   success:(SEL)success 
+					   failure:(SEL)failure 
+					  progress:(SEL)progress
+					 cancelled:(SEL)cancelled
 {
 	NSString *url = kAPI_THEME_URL(themeId);
 	m_target = target;
-	[self downloadThemeByUrl:url success:success failure:failure progress:nil];
+	[self downloadThemeByUrl:url success:success failure:failure progress:progress cancelled:cancelled];
 }
 
-- (void)downloadThemeByThemeId:(NSString *)themeId  target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress
-{
-	NSString *url = kAPI_THEME_URL(themeId);
-	m_target = target;
-	[self downloadThemeByUrl:url success:success failure:failure progress:progress];
-}
-
-- (void)downloadThemeByUrl:(NSString *)url success:(SEL)success failure:(SEL)failure progress:(SEL)progress
+- (void)downloadThemeByUrl:(NSString *)url success:(SEL)success failure:(SEL)failure progress:(SEL)progress cancelled:(SEL)cancelled
 {
 	m_themeDownloadSuccess = success;
 	m_themeDownloadFailure = failure;
 	m_themeDownloadProgress = progress;
+	m_themeDownloadCancelled = cancelled;
     
 	[self performSelectorInBackground:@selector(themeDownload:) withObject:url];
 }
@@ -622,6 +643,13 @@ static ThemeFramework* _sharedMySingleton = nil;
 	}
 	
 	return nil;
+}
+
+- (void)cancelThemeDownload
+{
+	m_themeDownloadSuccess = nil;
+	m_themeDownloadFailure = nil;
+	m_themeDownloadProgress = nil;
 }
 
 @end

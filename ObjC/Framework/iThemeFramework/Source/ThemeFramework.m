@@ -456,7 +456,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 
 - (void)downloadThemeByShortCode:(NSString *)shortCode target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress
 {
-	[self downloadThemeByShortCode:shortCode target:target success:success failure:failure progress:nil cancelled:nil];
+	[self downloadThemeByShortCode:shortCode target:target success:success failure:failure progress:progress cancelled:nil];
 }
 
 - (void)downloadThemeByShortCode:(NSString *)shortCode 
@@ -480,7 +480,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 
 - (void)downloadThemeByThemeId:(NSString *)themeId target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress
 {
-	[self downloadThemeByThemeId:themeId target:target success:success failure:failure progress:nil cancelled:nil];
+	[self downloadThemeByThemeId:themeId target:target success:success failure:failure progress:progress cancelled:nil];
 }
 
 - (void)downloadThemeByThemeId:(NSString *)themeId 

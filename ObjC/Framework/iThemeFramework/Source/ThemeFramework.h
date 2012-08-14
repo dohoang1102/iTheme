@@ -11,7 +11,7 @@
 //  the License.
 //
 //  ThemeFramework.h
-//  ThemeFramework
+//  iThemeFramework
 //
 //  Created by Chris Davis on 05/04/2012.
 //  Copyright (c) 2012 GameWeaver LTD. All rights reserved.
@@ -30,13 +30,13 @@
 	BOOL m_frameworkEnabled;
 	NSString *m_rootFolder;
 	id<ThemeFrameworkDelegate> m_delegate;
-	SEL m_jsonToDictionary; // - (NSDictionary *)convertJSONToDictionary:(NSString *)json
-	SEL m_dictionaryToJSON; // - (NSString *)convertDictionaryToJSON:(NSDictionary *)dictionary
+	SEL m_jsonToDictionary;			//- (NSDictionary *)convertJSONToDictionary:(NSString *)json {}
+	SEL m_dictionaryToJSON;			//- (NSString *)convertDictionaryToJSON:(NSDictionary *)dictionary {}
     
-	SEL m_themeDownloadSuccess;
-	SEL m_themeDownloadFailure;
-	SEL m_themeDownloadProgress; //- (void)update:(Progress *)progress
-	SEL m_themeDownloadCancelled;
+	SEL m_themeDownloadSuccess;		//- (void)success:(Theme *)theme {}
+	SEL m_themeDownloadFailure;		//- (void)failure:(NSError *)error {}
+	SEL m_themeDownloadProgress;	//- (void)update:(Progress *)progress {}
+	SEL m_themeDownloadCancelled;	//- (void)cancelled {}
 	
 	BOOL m_cancelled;
     
@@ -57,7 +57,7 @@
 @property (nonatomic,assign) id Target;
 
 // Public: Themes Singleton, usefor access like this:
-// [[Themes instance] DownloadTheme:@"123456789"];
+// [[Themes instance] methodCall];
 + (ThemeFramework *)instance;
 
 // Public: Initalize the Themes Framework with your app's unique identifier

@@ -11,7 +11,7 @@
 //  the License.
 //
 //  Theme.m
-//  ThemeFramework
+//  iThemeFramework
 //
 //  Created by Chris Davis on 07/04/2012.
 //  Copyright (c) 2012 GameWeaver LTD. All rights reserved.

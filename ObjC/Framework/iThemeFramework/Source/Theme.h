@@ -11,7 +11,7 @@
 //  the License.
 //
 //  Theme.h
-//  ThemeFramework
+//  iThemeFramework
 //
 //  Created by Chris Davis on 07/04/2012.
 //  Copyright (c) 2012 GameWeaver LTD. All rights reserved.
@@ -34,20 +34,20 @@
 @property (nonatomic, retain) NSMutableDictionary *Controls;
 @property (nonatomic, retain) NSString *Folder;
 
-// Public Initalize a theme from a dictionary, including the resource root
+// Public: Initalize a theme from a dictionary, including the resource root
 - (Theme *)initFromDictionary:(NSDictionary *)dictionary folder:(NSString *)folder;
 // Private
 - (void)setupControls;
-// Public Returns the full path to a file on disk
+// Public: Returns the full path to a file on disk
 // named by it's key
 - (id)pathToDataFileForKey:(NSString *)keyName;
-// Public Helper, returns the 'text' dictionary value
+// Public: Helper, returns the 'text' dictionary value
 // for a named key.
 - (NSString *)returnText:(NSString *)keyName;
-// Public Returns a path to an asset for the theme
+// Public: Returns a path to an asset for the theme
 - (NSString *)getPathToThemeAsset:(NSString *)fileName;
-// Public get a theme key data as a dictionary;
+// Public: get a theme key data as a dictionary;
 - (NSDictionary *)getKeyInfo:(NSString *)keyName;
-// Public Helper, returns the 'shortCode' for the theme
+// Public: Helper, returns the 'shortCode' for the theme
 - (NSString *)shortCode;
 @end

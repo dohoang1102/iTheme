@@ -57,7 +57,7 @@
 @property (nonatomic,assign) id Target;
 
 // Public: Themes Singleton, usefor access like this:
-// [[Themes instance] methodCall];
+// [[ThemeFramework instance] methodCall];
 + (ThemeFramework *)instance;
 
 // Public: Initalize the Themes Framework with your app's unique identifier

@@ -114,7 +114,7 @@
 - (void)downloadThemeByThemeId:(NSString *)themeId target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress;
 - (void)downloadThemeByThemeId:(NSString *)themeId target:(id)target success:(SEL)success failure:(SEL)failure progress:(SEL)progress cancelled:(SEL)cancelled;
 // Private: Calls themeDownload, sets callback methods
-- (void)downloadThemeByUrl:(NSString *)url success:(SEL)success failure:(SEL)failure progress:(SEL)progress;
+- (void)downloadThemeByUrl:(NSString *)url success:(SEL)success failure:(SEL)failure progress:(SEL)progress cancelled:(SEL)cancelled;
 // Private: Downloads a theme
 - (void)themeDownload:(NSString *)theUrl;
 // Private: an error occured when getting the theme

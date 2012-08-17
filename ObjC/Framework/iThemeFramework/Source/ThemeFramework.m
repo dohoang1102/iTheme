@@ -170,7 +170,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 
 - (BOOL)addThemeEntryToManifest:(NSString *)themeId shortCode:(NSString *)shortCode fullPackage:(BOOL)fullPackage lastEditDate:(NSDate *)lastEditDate
 {
-	if (m_cancelled)
+	if (fullPackage == FALSE || m_cancelled)
 		return FALSE;
 	
 	NSString *filePath = [self fullBasePath];
@@ -190,7 +190,6 @@ static ThemeFramework* _sharedMySingleton = nil;
 	[row setValue:themeId forKey:kKEY_THEMEID];
 	[row setValue:shortCode forKey:kKEY_SHORTCODE];
 	[row setObject:lastEditDate forKey:kKEY_LASTEDITDATE];
-	[row setValue:[NSNumber numberWithBool:fullPackage] forKey:kKEY_FULL_PACKAGE];
     
 	[dict setObject:row forKey:themeId];
     
@@ -314,18 +313,7 @@ static ThemeFramework* _sharedMySingleton = nil;
     
 	for (id key in dict)
 	{
-		NSDictionary *row = [dict objectForKey:key];
-		BOOL fullPackage = [[row objectForKey:kKEY_FULL_PACKAGE] boolValue];
-
-		BOOL canAdd = TRUE; //Add Everything
-		if (fullPackagesOnly == TRUE)
-			canAdd = fullPackage == fullPackagesOnly;
-		
-		if (canAdd)
-		{
-			[themes addObject:[self getTheme:key error:error]];
-		}
-
+		[themes addObject:[self getTheme:key error:error]];
 	}
 	
 	return themes;

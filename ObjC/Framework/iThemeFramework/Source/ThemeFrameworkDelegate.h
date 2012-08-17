@@ -18,11 +18,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Progress.h"
 
 @protocol ThemeFrameworkDelegate <NSObject>
 
 @optional
 - (void)browseCallback:(NSArray *)themes cursor:(NSString *)cursor;
 - (void)browseFailedCallback:(NSError *)error;
+- (void)browseProgressCallback:(Progress *)progress;
 
 @end

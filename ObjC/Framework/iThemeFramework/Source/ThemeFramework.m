@@ -415,6 +415,10 @@ static ThemeFramework* _sharedMySingleton = nil;
 	// Results array
 	NSArray *results = [body objectForKey:kKEY_RESULTS];
 	int resultCount = [results count];
+	
+	Progress *progress = [[Progress alloc] init];
+	progress.TotalItemsToDownload = resultCount;
+	
 	for (int i = 0; i < resultCount; i++)
 	{
 		NSDictionary *themeDictionary = [results objectAtIndex:i];
@@ -431,6 +435,12 @@ static ThemeFramework* _sharedMySingleton = nil;
 		[self addTheme:themeData themeDictionary:themeDictionary immediatesOnly:TRUE];
         
 		[themes addObject:[[Theme alloc] initFromDictionary:themeDictionary folder:[self fullBasePath]]];
+		
+		if ([m_target respondsToSelector:@selector(browseProgressCallback:)])
+		{
+			progress.NumberOfItemsDownloaded = i;
+			[m_target performSelectorOnMainThread:@selector(browseProgressCallback:) withObject:progress waitUntilDone:YES];
+		}
 	}
 
 	if ([m_target respondsToSelector:@selector(browseCallback:cursor:)])

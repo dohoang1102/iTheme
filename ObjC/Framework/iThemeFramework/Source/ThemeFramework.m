@@ -216,7 +216,7 @@ static ThemeFramework* _sharedMySingleton = nil;
 	return [dict writeToFile:filePath atomically:YES];
 }
 
-- (BOOL)themeIsUpToDate:(NSString *)shortCode onlineLastEditDate:(NSDate *)onlineLastEditDate
+- (BOOL)themeIsUpToDate:(NSString *)themeIdOrShortCode onlineLastEditDate:(NSDate *)onlineLastEditDate
 {
 	NSString *filePath = [self fullBasePath];
     
@@ -235,10 +235,11 @@ static ThemeFramework* _sharedMySingleton = nil;
 	{
 		NSDictionary *row = [dict objectForKey:key];
 		NSString *shortCodeInRow = [row objectForKey:kKEY_SHORTCODE];
+		NSString *themeIdInRow = [row objectForKey:kKEY_THEMEID];
 		NSDate *lastEditDate = [row objectForKey:kKEY_LASTEDITDATE];
-		if (shortCodeInRow != nil && lastEditDate != nil)
+		if (shortCodeInRow != nil && lastEditDate != nil && themeIdInRow != nil)
 		{
-			if ([shortCodeInRow isEqualToString:shortCode])
+			if ([shortCodeInRow isEqualToString:themeIdOrShortCode] || [themeIdInRow isEqualToString:themeIdOrShortCode])
 			{
 				NSComparisonResult result = [lastEditDate compare:onlineLastEditDate];
 				if (result == NSOrderedDescending || result == NSOrderedSame)

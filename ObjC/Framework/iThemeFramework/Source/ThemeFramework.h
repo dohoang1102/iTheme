@@ -85,7 +85,7 @@
 // Private: remove a theme from the manifest
 - (BOOL)removeThemeEntryFromManifest:(NSString *)themeId;
 // Public: Check if the theme online is newer than the one we have.
-- (BOOL)themeIsUpToDate:(NSString *)shortCode onlineLastEditDate:(NSDate *)onlineLastEditDate;
+- (BOOL)themeIsUpToDate:(NSString *)themeIdOrShortCode onlineLastEditDate:(NSDate *)onlineLastEditDate;
 // Public: Get all themes in manifest, optionally fully downloaded only.
 - (NSArray *)getThemesInManifest:(BOOL)fullPackagesOnly error:(NSError **)error;
 // Public: Reads a theme off of disk by shortcode.

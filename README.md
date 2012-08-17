@@ -24,6 +24,7 @@ API
 * `GET http://api.itheme.com/v1/themes/THEMEID` Returns a theme
 * `GET http://api.itheme.com/v1/apps/APPID/themes` Returns a collection of themes for the APPID
 * `HEAD http://api.itheme.com/v1/themes?s=SHORTCODE` Get's the headers for a theme
+* `HEAD http://api.itheme.com/v1/themes/THEMEID` Get's the headers for a theme
 
 **Getting a theme by Short Code:**
 
@@ -66,6 +67,8 @@ Possible response codes
 **Getting the theme headers**
 
 * `curl --head http://api.itheme.com/v1/themes?s=SHORTCODE` Returns HEADERS only of a theme, useful for 
+getting the last edit date of the theme.
+* `curl --head http://api.itheme.com/v1/themes/THEMEID` Returns HEADERS only of a theme, useful for 
 getting the last edit date of the theme.
 
 

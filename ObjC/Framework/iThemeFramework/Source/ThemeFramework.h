@@ -138,6 +138,9 @@
 // Public: Returns the last edit date of a theme on a remote
 // server by the shortCode
 - (NSDate *)lastEditDateOfRemoteThemeByShortCode:(NSString *)shortCode;
+// Public: Returns the last edit date of a theme on a remote
+// server by the themeId
+- (NSDate *)lastEditDateOfRemoteThemeByThemeId:(NSString *)themeId;
 
 // Public: Returns the headers from a HEAD request to a URL
 - (NSDictionary *)headRequest:(NSString *)theURL;

@@ -655,6 +655,16 @@ static ThemeFramework* _sharedMySingleton = nil;
 	return [self dateFromString:[dic objectForKey:kLAST_MODIFIED]];
 }
 
+- (NSDate *)lastEditDateOfRemoteThemeByThemeId:(NSString *)themeId
+{
+	NSString *url = kAPI_THEME_URL(themeId);
+	NSDictionary *dic = [self headRequest:url];
+	if (dic == nil)
+		return nil;
+	
+	return [self dateFromString:[dic objectForKey:kLAST_MODIFIED]];
+}
+
 - (NSDictionary *)headRequest:(NSString *)theURL
 {
 	NSURL *url = [NSURL URLWithString:theURL];

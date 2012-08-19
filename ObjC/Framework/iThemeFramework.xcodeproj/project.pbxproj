@@ -356,6 +356,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iThemeFrameworkMac/iThemeFrameworkMac-Prefix.pch";
 				INFOPLIST_FILE = "iThemeFrameworkMac/iThemeFrameworkMac-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				MACH_O_TYPE = mh_dylib;
 				ONLY_ACTIVE_ARCH = YES;
@@ -380,6 +381,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iThemeFrameworkMac/iThemeFrameworkMac-Prefix.pch";
 				INFOPLIST_FILE = "iThemeFrameworkMac/iThemeFrameworkMac-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = "";
@@ -493,6 +495,7 @@
 				67BD351D15CB0A600050D58A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		67E2A5251542CC92009CBB8C /* Build configuration list for PBXProject "iThemeFramework" */ = {
 			isa = XCConfigurationList;

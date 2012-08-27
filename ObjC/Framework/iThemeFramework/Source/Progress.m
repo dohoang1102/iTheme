@@ -22,6 +22,7 @@
 @implementation Progress
 @synthesize TotalItemsToDownload = m_totalItemsToDownload;
 @synthesize NumberOfItemsDownloaded = m_numberOfItemsDownloaded;
+@synthesize Theme = m_theme;
 
 - (float)percentage
 {

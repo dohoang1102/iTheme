@@ -107,4 +107,22 @@
 	return nil;
 }
 
+- (void)setValueForKey:(NSString *)keyName property:(NSString *)property value:(NSObject *)object
+{
+	NSArray *controls = [m_contents objectForKey:kKEY_CONTROLS];
+	int controlCount = [controls count];
+	for (int i = 0; i < controlCount; i++)
+	{
+		NSMutableDictionary *control = [controls objectAtIndex:i];
+		NSString *keyNameRow = [control objectForKey:kKEY_KEYNAME];
+		if (keyNameRow != nil)
+		{
+			if ([keyNameRow isEqualToString:keyName])
+			{
+				[control setValue:object forKey:property];
+			}
+		}
+	}
+}
+
 @end

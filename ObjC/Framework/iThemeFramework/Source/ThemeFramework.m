@@ -423,11 +423,13 @@ static ThemeFramework* _sharedMySingleton = nil;
 		
 		[self addTheme:themeData themeDictionary:themeDictionary immediatesOnly:TRUE];
         
-		[themes addObject:[[Theme alloc] initFromDictionary:themeDictionary folder:[self fullBasePath]]];
+		Theme *theme = [[Theme alloc] initFromDictionary:themeDictionary folder:[self fullBasePath]];
+		[themes addObject:theme];
 		
 		if ([m_target respondsToSelector:@selector(browseProgressCallback:)])
 		{
 			progress.NumberOfItemsDownloaded = i;
+			progress.Theme = theme;
 			[m_target performSelectorOnMainThread:@selector(browseProgressCallback:) withObject:progress waitUntilDone:YES];
 		}
 	}

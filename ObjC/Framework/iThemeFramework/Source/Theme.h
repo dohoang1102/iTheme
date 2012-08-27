@@ -50,4 +50,6 @@
 - (NSDictionary *)getKeyInfo:(NSString *)keyName;
 // Public: Helper, returns the 'shortCode' for the theme
 - (NSString *)shortCode;
+// Public: Set a value for a property
+- (void)setValueForKey:(NSString *)keyName property:(NSString *)property value:(NSObject *)object;
 @end

@@ -18,14 +18,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Theme.h"
 
 @interface Progress : NSObject
 {
 	float m_totalItemsToDownload;
 	float m_numberOfItemsDownloaded;
+	Theme *m_theme;
 }
 @property (nonatomic) float TotalItemsToDownload;
 @property (nonatomic) float NumberOfItemsDownloaded;
+@property (nonatomic, assign) Theme *Theme;
 
 // Gives the percentage of the download.
 - (float)percentage;

@@ -398,6 +398,7 @@
 				ARCHS = (
 					"$(ARCHS_STANDARD_32_BIT)",
 					"$(ARCHS_STANDARD_64_BIT)",
+					armv6,
 				);
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
@@ -419,8 +420,8 @@
 				MACH_O_TYPE = mh_object;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
-				SDKROOT = iphoneos;
-				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT) x86_64 i386";
+				SDKROOT = iphoneos5.1;
+				VALID_ARCHS = "armv7 armv6 x86_64 i386";
 				WRAPPER_EXTENSION = "";
 			};
 			name = Debug;
@@ -432,6 +433,7 @@
 				ARCHS = (
 					"$(ARCHS_STANDARD_32_BIT)",
 					"$(ARCHS_STANDARD_64_BIT)",
+					armv6,
 				);
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = NO;
@@ -447,8 +449,8 @@
 				MACH_O_TYPE = mh_object;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
-				SDKROOT = iphoneos;
-				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT) x86_64 i386";
+				SDKROOT = iphoneos5.1;
+				VALID_ARCHS = "armv7 armv6 x86_64 i386";
 				WRAPPER_EXTENSION = "";
 			};
 			name = Release;
@@ -456,7 +458,10 @@
 		67E2A53A1542CC93009CBB8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iThemeFramework/iThemeFramework-Prefix.pch";
 				INFOPLIST_FILE = "iThemeFramework/iThemeFramework-Info.plist";
@@ -464,7 +469,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT) armv6";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -472,7 +477,10 @@
 		67E2A53B1542CC93009CBB8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iThemeFramework/iThemeFramework-Prefix.pch";
 				INFOPLIST_FILE = "iThemeFramework/iThemeFramework-Info.plist";
@@ -480,7 +488,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT) armv6";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
